@@ -31,6 +31,8 @@
          xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/opaque/">
 
     <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess" location="../WSDLs/BamExporterProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import location="oracle.xml.parser.v2.XMLElement"
+         importType="http://schemas.oracle.com/bpel/extension/java"/>
     <!-- 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         PARTNERLINKS                                                      
@@ -76,7 +78,7 @@
     <receive name="receiveInput" partnerLink="bamexporterprocess_client" portType="client:BamExporterProcess" operation="process" variable="inputVariable" createInstance="yes"/>
     <extensionActivity>
       <bpelx:exec name="PerformBAMExport">
-        <![CDATA[com.avioconsulting.bamexportrunner.Exporter.test();]]>
+        <![CDATA[com.avioconsulting.bamexportrunner.Exporter.test((XMLElement) getVariableData("inputVariable", "payload"));]]>
       </bpelx:exec>
     </extensionActivity>
     <invoke name="ReadZip" bpelx:invokeAsDetail="no" partnerLink="BamZipFile" portType="ns1:SynchRead_ptt"

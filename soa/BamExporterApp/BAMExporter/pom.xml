@@ -207,5 +207,12 @@
       <version>2.4.3</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <!-- Java embedding/payload -->
+      <groupId>com.oracle.fmwshare</groupId>
+      <artifactId>xmlparserv2</artifactId>
+      <version>12.2.1-2-0</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 </project>
