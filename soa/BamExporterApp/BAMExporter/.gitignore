@@ -1,6 +1,7 @@
 deploy
 tmp
 SOA/SCA-INF/classes
+SOA/SCA-INF/lib
 target
 /.idea
 /BAMExporter.iml

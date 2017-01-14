@@ -27,6 +27,7 @@
     <composite.revision>${project.version}</composite.revision>
     <outputFile>sca_${composite.name}_rev${composite.revision}.jar</outputFile>
     <soamds.apps.home>${project.basedir}../../NewStoreMds</soamds.apps.home>
+    <soaLibDirectory>${project.basedir}/SOA/SCA-INF/lib</soaLibDirectory>
   </properties>
 
   <build>
@@ -91,6 +92,16 @@
         <configuration>
           <compilerId>groovy-eclipse-compiler</compilerId>
         </configuration>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <!-- Our BPEL code won't compile if this isn't done first -->
+            <phase>process-resources</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
         <dependencies>
           <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -103,6 +114,44 @@
             <version>2.4.3-01</version>
           </dependency>
         </dependencies>
+      </plugin>
+      <plugin>
+        <!-- Code BPEL calls is Groovy and we'll need that dependency inside the SAR -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.8</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${soaLibDirectory}</outputDirectory>
+              <includeArtifactIds>groovy-all</includeArtifactIds>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.6.1</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>${soaLibDirectory}</directory>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+            <fileset>
+              <directory>${project.basedir}/tmp</directory>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+          </filesets>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -156,7 +205,7 @@
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
       <version>2.4.3</version>
-      <scope>provided</scope>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>
