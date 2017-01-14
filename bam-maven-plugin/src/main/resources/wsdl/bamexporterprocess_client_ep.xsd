@@ -7,7 +7,7 @@
   <element name="process">
     <complexType>
       <sequence>
-        <element name="input" type="string"/>
+        <element name="bamProject" type="string" />
       </sequence>
     </complexType>
   </element>
