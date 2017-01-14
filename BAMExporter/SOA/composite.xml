@@ -11,6 +11,25 @@
            xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
            xmlns:ui="http://xmlns.oracle.com/soa/designer/"
            xmlns:sca-ext="http://xmlns.oracle.com/sca/1.0-ext">
+  <import namespace="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess"
+          location="WSDLs/BamExporterProcess.wsdl" importType="wsdl"/>
+  <service name="bamexporterprocess_client_ep" ui:wsdlLocation="WSDLs/BamExporterProcess.wsdl">
+    <interface.wsdl interface="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess#wsdl.interface(BamExporterProcess)"/>
+    <binding.ws port="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess#wsdl.endpoint(bamexporterprocess_client_ep/BamExporterProcess_pt)"/>
+  </service>
   <property name="productVersion" type="xs:string" many="false">12.2.1.2.0.161003</property>
   <property name="compositeID" type="xs:string" many="false">d39676bd-f7aa-4790-84fe-d31acc618435</property>
+  <component name="BamExporterProcess" version="2.0">
+    <implementation.bpel src="BPEL/BamExporterProcess.bpel"/>
+    <componentType>
+      <service name="bamexporterprocess_client" ui:wsdlLocation="WSDLs/BamExporterProcess.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess#wsdl.interface(BamExporterProcess)"/>
+      </service>
+    </componentType>
+    <property name="bpel.config.transaction" type="xs:string" many="false">required</property>
+  </component>
+  <wire>
+    <source.uri>bamexporterprocess_client_ep</source.uri>
+    <target.uri>BamExporterProcess/bamexporterprocess_client</target.uri>
+  </wire>
 </composite>
