@@ -48,8 +48,8 @@
 
     <!-- Reference to the message that will be returned to the requester-->
     <variable name="outputVariable" messageType="client:BamExporterProcessResponseMessage"/>
-    <variable name="Invoke1_SynchRead_InputVariable" messageType="ns1:Empty_msg"/>
-    <variable name="Invoke1_SynchRead_OutputVariable" messageType="ns1:SynchRead_msg"/>
+    <variable name="ReadFile_SynchRead_InputVariable" messageType="ns1:Empty_msg"/>
+    <variable name="ReadFile_SynchRead_OutputVariable" messageType="ns1:SynchRead_msg"/>
   </variables>
 
   <!-- 
@@ -68,9 +68,9 @@
         <![CDATA[System.out.println("howdy");]]>
       </bpelx:exec>
     </extensionActivity>
-    <invoke name="ReadZIP" partnerLink="BamZipFile" portType="ns1:SynchRead_ptt"
-            operation="SynchRead" inputVariable="Invoke1_SynchRead_InputVariable" bpelx:invokeAsDetail="no"
-            outputVariable="Invoke1_SynchRead_OutputVariable"/>
+    <invoke name="ReadFile" bpelx:invokeAsDetail="no" partnerLink="BamZipFile" portType="ns1:SynchRead_ptt"
+            operation="SynchRead" inputVariable="ReadFile_SynchRead_InputVariable"
+            outputVariable="ReadFile_SynchRead_OutputVariable"/>
     <!-- Generate reply to synchronous request -->
     <reply name="replyOutput" partnerLink="bamexporterprocess_client" portType="client:BamExporterProcess" operation="process" variable="outputVariable"/>
   </sequence>

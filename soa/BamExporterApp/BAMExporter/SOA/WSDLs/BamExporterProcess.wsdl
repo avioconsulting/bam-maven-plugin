@@ -3,14 +3,17 @@
              targetNamespace="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
              xmlns:client="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
              xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	TYPE DEFINITION - List of services participating in this BPEL process
-	The default output of the BPEL designer uses strings as input and 
-	output to the BPEL Process. But you can define or import any XML 
+	The default output of the BPEL designer uses strings as input and
+	output to the BPEL Process. But you can define or import any XML
 	Schema type and use them as part of the message types.
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->   
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<wsdl:types>
 		<schema xmlns="http://www.w3.org/2001/XMLSchema">
 			<import namespace="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess" schemaLocation="../Schemas/BamExporterProcess.xsd" />
@@ -18,14 +21,15 @@
 	</wsdl:types>
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	MESSAGE TYPE DEFINITION - Definition of the message types used as 
+	MESSAGE TYPE DEFINITION - Definition of the message types used as
 	part of the port type defintions
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->      
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<wsdl:message name="BamExporterProcessRequestMessage">
 		<wsdl:part name="payload" element="client:process"/>
 	</wsdl:message>
 	<wsdl:message name="BamExporterProcessResponseMessage">
 		<wsdl:part name="payload" element="client:processResponse"/>
+		<wsdl:part name="attach" type="xsd:base64Binary"/>
 	</wsdl:message>
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,9 +45,34 @@
 		</wsdl:operation>
 	</wsdl:portType>
 
+	<wsdl:binding name="BamExporterProcessBinding" type="client:BamExporterProcess">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="process">
+         <soap:operation style="document" soapAction="process"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <mime:multipartRelated>
+                    <mime:part>
+                        <soap:body use="literal" parts="payload"/>
+                    </mime:part>
+                    <mime:part>
+                        <mime:content part="attach" type="application/octet-stream"/>
+                    </mime:part>
+                </mime:multipartRelated>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="bamexporterprocess_client_ep">
+      <wsdl:port name="BamExporterProcess_pt" binding="client:BamExporterProcessBinding">
+         <soap:address location="http://foobar"/>
+      </wsdl:port>
+   </wsdl:service>
+
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	PARTNER LINK TYPE DEFINITION
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<plnk:partnerLinkType name="BamExporterProcess">
 		<plnk:role name="BamExporterProcessProvider" portType="client:BamExporterProcess"/>
 	</plnk:partnerLinkType>

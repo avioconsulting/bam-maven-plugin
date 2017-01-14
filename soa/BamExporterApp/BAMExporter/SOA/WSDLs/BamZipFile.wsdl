@@ -4,8 +4,8 @@
      xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/file/BamExporter/BAMExporter/BamZipFile"
      xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
      xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
-     xmlns:attach="http://xmlns.oracle.com/pcbpel/adapter/file/attachment/"
      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:opaque="http://xmlns.oracle.com/pcbpel/adapter/opaque/"
     >
   <plt:partnerLinkType name="SynchRead_plt" >
     <plt:role name="SynchRead_role" >
@@ -13,21 +13,17 @@
     </plt:role>
   </plt:partnerLinkType>
     <wsdl:types>
-    <schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/file/attachment/" xmlns="http://www.w3.org/2001/XMLSchema"
-            elementFormDefault="qualified" >
-      <element name="attachmentElement" >
-         <complexType>
-           <attribute name="href" type="string" />
-         </complexType>
-      </element>
+    <schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/opaque/"
+            xmlns="http://www.w3.org/2001/XMLSchema" >
+      <element name="opaqueElement" type="base64Binary" />
         <element name="empty"><complexType/></element>
     </schema>
     </wsdl:types>
     <wsdl:message name="Empty_msg">
-        <wsdl:part name="Empty" element="attach:empty"/>
+        <wsdl:part name="Empty" element="opaque:empty"/>
     </wsdl:message>
     <wsdl:message name="SynchRead_msg">
-        <wsdl:part name="attach" element="attach:attachmentElement"/>
+        <wsdl:part name="opaque" element="opaque:opaqueElement"/>
     </wsdl:message>
     <wsdl:portType name="SynchRead_ptt">
         <wsdl:operation name="SynchRead">
