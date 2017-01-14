@@ -4,7 +4,8 @@
   <import importType="wsdl" location="WSDLs/BamZipFile.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/file/BamExporter/BAMExporter/BamZipFile"/>
   <service name="bamexporterprocess_client_ep" ui:wsdlLocation="WSDLs/BamExporterProcess.wsdl">
     <interface.wsdl interface="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess#wsdl.interface(BamExporterProcess)"/>
-    <binding.ws port="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess#wsdl.endpoint(bamexporterprocess_client_ep/BamExporterProcess_pt)"/>
+    <binding.ws port="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess#wsdl.endpoint(bamexporterprocess_client_ep/BamExporterProcess_pt)">
+    </binding.ws>
   </service>
   <property many="false" name="productVersion" type="xs:string">12.2.1.2.0.161003</property>
   <property many="false" name="compositeID" type="xs:string">d39676bd-f7aa-4790-84fe-d31acc618435</property>

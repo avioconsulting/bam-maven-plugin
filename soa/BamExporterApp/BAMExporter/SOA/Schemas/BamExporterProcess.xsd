@@ -13,7 +13,7 @@
 	<element name="processResponse">
 		<complexType>
 			<sequence>
-				<element name="result" type="string"/>
+				<element name="result" type="base64Binary"/>
 			</sequence>
 		</complexType>
 	</element>

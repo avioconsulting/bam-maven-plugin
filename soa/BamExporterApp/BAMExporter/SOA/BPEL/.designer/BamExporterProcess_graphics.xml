@@ -4,10 +4,10 @@
    <annotationfile/>
    <iconize/>
    <partnerlink_locations>
-      <partnerlink name="bamexporterprocess_client" x="0" y="235" side="left"/>
-      <partnerlink name="BamZipFile" x="862" y="284" side="right"/>
+      <partnerlink name="bamexporterprocess_client" x="0" y="283" side="left"/>
+      <partnerlink name="BamZipFile" x="847" y="284" side="right"/>
    </partnerlink_locations>
-   <graph_layout viewport="0,0,978,595" show_swimlanes="true">
+   <graph_layout viewport="0,0,963,595" show_swimlanes="true">
       <layout_item collapsed="false" xpath="/process" type="process" showhandlers="true"/>
       <layout_item collapsed="false" xpath="/process/sequence" type="sequence"/>
    </graph_layout>

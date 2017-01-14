@@ -17,7 +17,18 @@
                xmlns:ui="http://xmlns.oracle.com/soa/designer"
                xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
          xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
-         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/file/BamExporter/BAMExporter/BamZipFile">
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/file/BamExporter/BAMExporter/BamZipFile"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/opaque/">
 
     <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess" location="../WSDLs/BamExporterProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <!-- 
@@ -48,8 +59,8 @@
 
     <!-- Reference to the message that will be returned to the requester-->
     <variable name="outputVariable" messageType="client:BamExporterProcessResponseMessage"/>
-    <variable name="ReadFile_SynchRead_InputVariable" messageType="ns1:Empty_msg"/>
-    <variable name="ReadFile_SynchRead_OutputVariable" messageType="ns1:SynchRead_msg"/>
+    <variable name="ReadZip_SynchRead_InputVariable" messageType="ns1:Empty_msg"/>
+    <variable name="ReadZip_SynchRead_OutputVariable" messageType="ns1:SynchRead_msg"/>
   </variables>
 
   <!-- 
@@ -68,9 +79,15 @@
         <![CDATA[System.out.println("howdy");]]>
       </bpelx:exec>
     </extensionActivity>
-    <invoke name="ReadFile" bpelx:invokeAsDetail="no" partnerLink="BamZipFile" portType="ns1:SynchRead_ptt"
-            operation="SynchRead" inputVariable="ReadFile_SynchRead_InputVariable"
-            outputVariable="ReadFile_SynchRead_OutputVariable"/>
+    <invoke name="ReadZip" bpelx:invokeAsDetail="no" partnerLink="BamZipFile" portType="ns1:SynchRead_ptt"
+            operation="SynchRead" inputVariable="ReadZip_SynchRead_InputVariable"
+            outputVariable="ReadZip_SynchRead_OutputVariable"/>
+    <assign name="CopyOutput">
+      <copy>
+        <from>$ReadZip_SynchRead_OutputVariable.opaque</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:result</to>
+      </copy>
+    </assign>
     <!-- Generate reply to synchronous request -->
     <reply name="replyOutput" partnerLink="bamexporterprocess_client" portType="client:BamExporterProcess" operation="process" variable="outputVariable"/>
   </sequence>
