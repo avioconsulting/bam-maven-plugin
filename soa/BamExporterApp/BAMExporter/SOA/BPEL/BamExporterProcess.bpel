@@ -78,7 +78,7 @@
     <receive name="receiveInput" partnerLink="bamexporterprocess_client" portType="client:BamExporterProcess" operation="process" variable="inputVariable" createInstance="yes"/>
     <extensionActivity>
       <bpelx:exec name="PerformBAMExport">
-        <![CDATA[String result = com.avioconsulting.bamexportrunner.Exporter.test((XMLElement) getVariableData("inputVariable", "payload"));
+        <![CDATA[String result = com.avioconsulting.bamexportrunner.Exporter.doExport((XMLElement) getVariableData("inputVariable", "payload"));
 addAuditTrailEntry(result);
 if (result.indexOf("ERROR") != -1) {
   throw new RuntimeException("BAM run failed!");

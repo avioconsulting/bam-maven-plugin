@@ -6,7 +6,7 @@ import oracle.xml.parser.v2.XMLElement
 class Exporter {
     private static final int COMMAND_TIMEOUT_MINUTES = 5
 
-    static String test(XMLElement input) {
+    static String doExport(XMLElement input) {
         def logText = []
         def log = { text -> logText << text }
         def bamProjectNode = input.getElementsByTagName('bamProject').item(0)
