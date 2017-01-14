@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BamExporterProcess" targetNamespace="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+  <wsdl:documentation>
+    <abstractWSDL>http://localhost:8001/soa-infra/services/default/BAMExporter!1.0-SNAPSHOT/WSDLs/BamExporterProcess.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="BamExporterProcess">
+    <plnk:role name="BamExporterProcessProvider" portType="client:BamExporterProcess"/>
+  </plnk:partnerLinkType>
+  <wsp:Policy wsu:Id="wsmtom_policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization"/>
+  </wsp:Policy>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess" schemaLocation="bamexporterprocess_client_ep.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="BamExporterProcessRequestMessage">
+    <wsdl:part name="payload" element="client:process"/>
+  </wsdl:message>
+  <wsdl:message name="BamExporterProcessResponseMessage">
+    <wsdl:part name="payload" element="client:processResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="BamExporterProcess">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:BamExporterProcessRequestMessage"/>
+      <wsdl:output message="client:BamExporterProcessResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BamExporterProcessBinding" type="client:BamExporterProcess">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#wsmtom_policy" wsdl:required="false" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bamexporterprocess_client_ep">
+    <wsdl:port name="BamExporterProcess_pt" binding="client:BamExporterProcessBinding">
+      <soap:address location="http://localhost:8001/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

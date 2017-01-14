@@ -10,6 +10,7 @@
         </dgm:shadow>
         <dgm:outputPort name="bamexporterprocess_client_ep" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess#wsdl.interface(BamExporterProcess)"/>
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="20" Y="4" width="20" height="20"/>
+        <dgm:policyIcon URI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/locked_12x12.png" X="111" Y="8" width="12" height="12"/>
         <dgm:operations>
             <dgm:item>process</dgm:item>
         </dgm:operations>
