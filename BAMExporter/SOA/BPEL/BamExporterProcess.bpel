@@ -16,7 +16,8 @@
                xmlns:ora="http://schemas.oracle.com/xpath/extension"
                xmlns:ui="http://xmlns.oracle.com/soa/designer"
                xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
-         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/file/BamExporter/BAMExporter/BamZipFile">
 
     <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/BamExporter/BAMExporter/BamExporterProcess" location="../WSDLs/BamExporterProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <!-- 
@@ -32,6 +33,7 @@
       with the client role are automatically set using WS-Addressing.
     -->
     <partnerLink name="bamexporterprocess_client" partnerLinkType="client:BamExporterProcess" myRole="BamExporterProcessProvider"/>
+    <partnerLink name="BamZipFile" partnerLinkType="ns1:SynchRead_plt" partnerRole="SynchRead_role"/>
   </partnerLinks>
 
   <!-- 
@@ -46,6 +48,8 @@
 
     <!-- Reference to the message that will be returned to the requester-->
     <variable name="outputVariable" messageType="client:BamExporterProcessResponseMessage"/>
+    <variable name="Invoke1_SynchRead_InputVariable" messageType="ns1:Empty_msg"/>
+    <variable name="Invoke1_SynchRead_OutputVariable" messageType="ns1:SynchRead_msg"/>
   </variables>
 
   <!-- 
@@ -59,7 +63,12 @@
 
     <!-- Receive input from requestor. (Note: This maps to operation defined in BamExporterProcess.wsdl) -->
     <receive name="receiveInput" partnerLink="bamexporterprocess_client" portType="client:BamExporterProcess" operation="process" variable="inputVariable" createInstance="yes"/>
-
+    <extensionActivity>
+      <bpelx:exec name="PerformBAMExport"/>
+    </extensionActivity>
+    <invoke name="ReadZIP" partnerLink="BamZipFile" portType="ns1:SynchRead_ptt"
+            operation="SynchRead" inputVariable="Invoke1_SynchRead_InputVariable" bpelx:invokeAsDetail="no"
+            outputVariable="Invoke1_SynchRead_OutputVariable"/>
     <!-- Generate reply to synchronous request -->
     <reply name="replyOutput" partnerLink="bamexporterprocess_client" portType="client:BamExporterProcess" operation="process" variable="outputVariable"/>
   </sequence>

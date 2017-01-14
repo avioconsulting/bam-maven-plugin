@@ -1,0 +1,13 @@
+<adapter-config name="BamZipFile" adapter="file" wsdlLocation="../WSDLs/BamZipFile.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/FileAdapter"/>
+  <endpoint-interaction portType="SynchRead_ptt" operation="SynchRead">
+    <interaction-spec className="oracle.tip.adapter.file.outbound.FileReadInteractionSpec">
+      <property name="PhysicalDirectory" value="/tmp"/>
+      <property name="AsAttachment" value="true"/>
+      <property name="FileName" value="bamExport.zip"/>
+      <property name="DeleteFile" value="true"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>
