@@ -78,6 +78,7 @@
    <value n="defaultPackage" v="com.avioconsulting.bamexporter"/>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
+         <string v="Maven"/>
          <string v="SOA"/>
          <string v="WSDL"/>
          <string v="WSPolicy"/>
@@ -105,6 +106,10 @@
          <string v=".xml"/>
          <string v=".xsd"/>
          <string v=".xsl"/>
+         <string v=".exm"/>
+         <string v=".xml"/>
+         <string v=".exm"/>
+         <string v=".xml"/>
          <string v=".exm"/>
          <string v=".xml"/>
       </list>
@@ -211,6 +216,9 @@
          <string v="BAMExporter"/>
       </list>
    </hash>
+   <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
+      <url n="pomfileURL" path="pom.xml"/>
+   </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
       <value n="j2eeWebAppName" v="BamExporter-BAMExporter-webapp"/>
       <value n="j2eeWebContextRoot" v="BamExporter-BAMExporter-context-root"/>
@@ -302,4 +310,5 @@
       </hash>
    </hash>
    <value n="SCA_BPEL_FOLDER_PROPERTY_NAME" v="BPEL/"/>
+   <value n="SOA_WSDL_FOLDER_NAME" v="WSDLs/"/>
 </jpr:project>

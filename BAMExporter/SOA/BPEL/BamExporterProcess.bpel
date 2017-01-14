@@ -64,7 +64,9 @@
     <!-- Receive input from requestor. (Note: This maps to operation defined in BamExporterProcess.wsdl) -->
     <receive name="receiveInput" partnerLink="bamexporterprocess_client" portType="client:BamExporterProcess" operation="process" variable="inputVariable" createInstance="yes"/>
     <extensionActivity>
-      <bpelx:exec name="PerformBAMExport"/>
+      <bpelx:exec name="PerformBAMExport">
+        <![CDATA[System.out.println("howdy");]]>
+      </bpelx:exec>
     </extensionActivity>
     <invoke name="ReadZIP" partnerLink="BamZipFile" portType="ns1:SynchRead_ptt"
             operation="SynchRead" inputVariable="Invoke1_SynchRead_InputVariable" bpelx:invokeAsDetail="no"

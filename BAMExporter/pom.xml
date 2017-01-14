@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!--
+           This POM was automatically generated during SOA project creation.           
+           This POM relates to this SOA Composite, i.e. the one in this same directory.
+           There is another POM in the SOA Application directory which handles
+           the whole SOA Application, which may contain additional projects. 
+        -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.avioconsulting.bamexporter</groupId>
+  <artifactId>BAMExporter</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>sar</packaging>
+  <parent>
+      <groupId>com.avioconsulting.oracle.soa</groupId>
+      <artifactId>avio-sar-common</artifactId>
+      <version>12.2.1-2-0</version>
+      <relativePath />
+  </parent>
+
+  <properties>
+    <overwrite>true</overwrite>
+    <forceDefault>true</forceDefault>
+    <regenerateRulebase>false</regenerateRulebase>
+    <keepInstancesOnRedeploy>false</keepInstancesOnRedeploy>
+    <composite.revision>${project.version}</composite.revision>
+    <outputFile>sca_${composite.name}_rev${composite.revision}.jar</outputFile>
+    <soamds.apps.home>${project.basedir}../../NewStoreMds</soamds.apps.home>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.oracle.soa.plugin</groupId>
+        <artifactId>oracle-soa-plugin</artifactId>
+        <version>12.2.1-1-0</version>
+        <configuration>
+          <compositeName>${composite.name}</compositeName>
+          <compositeRevision>${composite.revision}</compositeRevision>
+          <composite.partition>${partition}</composite.partition>
+          <revision>${composite.revision}</revision>
+          <composite>${scac.input}</composite>
+          <scacInputDir>${scac.input.dir}</scacInputDir>
+          <sarLocation>${scac.output.dir}/${outputFile}</sarLocation>
+          <serverUrl>${serverUrl}</serverUrl>
+          <input>${composite.name}</input>
+          <jndiPropertiesInput>${sca.test.properties}</jndiPropertiesInput>
+          <configplan>${config.plan}</configplan>
+          <partition>${partition}</partition>
+          <overwrite>${overwrite}</overwrite>
+          <forceDefault>${forceDefault}</forceDefault>
+          <regenerateRulebase>${regenerateRulebase}</regenerateRulebase>
+          <keepInstancesOnRedeploy>${keepInstancesOnRedeploy}</keepInstancesOnRedeploy>
+          <oracleHome>${oracle.home}</oracleHome>
+          <soaOracleHome>${soa.oracle.home}</soaOracleHome>
+        </configuration>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>com.oracle.adf.plugin</groupId>
+        <artifactId>ojdeploy</artifactId>
+        <version>12.2.1-2-0</version>
+        <configuration>
+          <ojdeploy>
+            ${oracleHome}/../jdeveloper/jdev/bin/ojdeploy
+          </ojdeploy>
+          <workspace>
+            ${basedir}/../evhctestapp.jws
+          </workspace>
+          <project>
+            Project1
+          </project>
+          <profile>
+            Project1
+          </profile>
+          <outputfile>
+            ${project.build.directory}/${project.build.finalName}.jar
+          </outputfile>
+        </configuration>
+        <executions>
+          <execution>
+            <!-- JDeveloper keeps adding this plugin back in but it's not needed for a SOA project, we'll disable it this way -->
+            <phase>none</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <description>Sample Composite process</description>
+  <repositories />
+  <pluginRepositories />
+  <dependencies>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>SOA-Designtime</artifactId>
+      <version>12.2.1-2-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>SOA-Runtime</artifactId>
+      <version>12.2.1-2-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>BPEL-Runtime</artifactId>
+      <version>12.2.1-2-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>Mediator-Runtime</artifactId>
+      <version>12.2.1-2-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>MDS-Runtime</artifactId>
+      <version>12.2.1-2-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>BC4J-Service-Runtime</artifactId>
+      <version>12.2.1-2-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+</project>

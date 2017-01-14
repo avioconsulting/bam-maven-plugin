@@ -3,7 +3,7 @@
   <connection-factory location="eis/FileAdapter"/>
   <endpoint-interaction portType="SynchRead_ptt" operation="SynchRead">
     <interaction-spec className="oracle.tip.adapter.file.outbound.FileReadInteractionSpec">
-      <property name="PhysicalDirectory" value="/tmp"/>
+      <property name="PhysicalDirectory" value="/tmp/bamExporter"/>
       <property name="AsAttachment" value="true"/>
       <property name="FileName" value="bamExport.zip"/>
       <property name="DeleteFile" value="true"/>
