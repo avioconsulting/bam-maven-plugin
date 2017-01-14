@@ -3,9 +3,10 @@ package com.avioconsulting.bamexportrunner
 import oracle.xml.parser.v2.XMLElement
 
 class Exporter {
-    static def test(XMLElement input) {
+    static String test(XMLElement input) {
+        // TODO: Validate that project name has no special characters
         def bamProjectNode = input.getElementsByTagName('bamProject').item(0)
         def bamProject = bamProjectNode.textContent
-        println "we will export BAM project ${bamProject}"
+        return "we will export BAM project ${bamProject}"
     }
 }
