@@ -76,7 +76,7 @@
     <receive name="receiveInput" partnerLink="bamexporterprocess_client" portType="client:BamExporterProcess" operation="process" variable="inputVariable" createInstance="yes"/>
     <extensionActivity>
       <bpelx:exec name="PerformBAMExport">
-        <![CDATA[System.out.println("howdy");]]>
+        <![CDATA[com.avioconsulting.bamexportrunner.Exporter.test();]]>
       </bpelx:exec>
     </extensionActivity>
     <invoke name="ReadZip" bpelx:invokeAsDetail="no" partnerLink="BamZipFile" portType="ns1:SynchRead_ptt"
