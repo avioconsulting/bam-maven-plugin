@@ -2,6 +2,7 @@ package com.avioconsulting.bamexporter
 
 import groovy.mock.interceptor.StubFor
 import org.apache.commons.io.FileUtils
+import org.apache.maven.model.Build
 import org.apache.maven.project.MavenProject
 import org.junit.Before
 import org.junit.Test
@@ -16,6 +17,7 @@ class BamExportMojoTest {
     List<String> bamProjectsExecuted
     final File baseDirectory = new File('build/tmp/the_base_dir')
     final File projectDirectory = new File(baseDirectory, 'baseProjectDir')
+    final File classesDirectory = new File(new File(projectDirectory, 'target'), 'classes')
     final File bamPath = new File(this.projectDirectory, 'src/main/resources/bam')
     File validZip = new File(baseDirectory, 'bamExport.zip')
     StubFor stub
@@ -35,7 +37,11 @@ class BamExportMojoTest {
             this.bamProjectsExecuted << bamProject
             stream.write validZip.readBytes()
         }
-        mojo.mavenProject = [getBasedir: { this.projectDirectory }] as MavenProject
+        def build = [outputDirectory: classesDirectory.absolutePath] as Build
+        mojo.mavenProject = [
+                getBasedir: { this.projectDirectory },
+                getBuild  : { build }
+        ] as MavenProject
         if (projectDirectory.exists()) {
             projectDirectory.deleteDir()
         }
@@ -47,8 +53,22 @@ class BamExportMojoTest {
     }
 
     @Test
+    void disabled() {
+        // arrange
+        this.mojo.doExport = false
+
+        // act
+        mojo.execute()
+
+        // assert
+        assertThat bamProjectsExecuted,
+                   is(equalTo([]))
+    }
+
+    @Test
     void normal() {
         // arrange
+        this.mojo.doExport = true
 
         // act
         this.stub.use {
@@ -67,8 +87,25 @@ class BamExportMojoTest {
     }
 
     @Test
+    void cleanCruft() {
+        // arrange
+        this.mojo.doExport = false
+        classesDirectory.mkdirs()
+        def junkFile = new File(classesDirectory, 'junk.xml')
+        FileUtils.touch junkFile
+
+        // act
+        mojo.execute()
+
+        // assert
+        assertThat junkFile.exists(),
+                   is(equalTo(false))
+    }
+
+    @Test
     void cleansExistingDirectory() {
         // arrange
+        this.mojo.doExport = true
         bamPath.mkdirs()
         def existingFile = new File(bamPath, 'something.xml')
         FileUtils.touch existingFile

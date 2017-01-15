@@ -17,6 +17,9 @@ class BamExportMojo extends AbstractMojo {
     @Parameter(property = 'bam.project', required = true)
     private String bamProject
 
+    @Parameter(property = 'bam.export', defaultValue = 'false')
+    private boolean doExport
+
     @Component
     private MavenProject mavenProject
 
@@ -26,6 +29,19 @@ class BamExportMojo extends AbstractMojo {
     }
 
     void execute() throws MojoExecutionException, MojoFailureException {
+        def classesDir = new File(this.mavenProject.build.outputDirectory)
+
+        if (classesDir.exists()) {
+            this.log.info "Cleaning output directory to avoid BAM cruft ${classesDir}..."
+            classesDir.deleteDir()
+            classesDir.mkdirs()
+        }
+
+        if (!this.doExport) {
+            this.log.info 'Skipping BAM export, use -Dbam.export=true to enable it'
+            return
+        }
+
         def uri = new URI(this.exportEndpoint)
         this.log.info "Fetching BAM artifacts from ${uri}"
         def exportFetcher = new BamExportFetcher(uri)
@@ -42,6 +58,7 @@ class BamExportMojo extends AbstractMojo {
             if (destinationDirectory.exists()) {
                 destinationDirectory.deleteDir()
             }
+
             antBuilder.unzip src: absolutePath,
                              dest: destinationDirectory.absolutePath,
                              overwrite: true
