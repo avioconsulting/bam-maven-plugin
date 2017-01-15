@@ -1,10 +1,10 @@
 import com.avioconsulting.bamexportrunner.BamServerInfoFetcher
 import com.avioconsulting.bamexportrunner.PasswordDecryptor
 import groovy.mock.interceptor.StubFor
+import groovy.test.GroovyAssert
 import org.junit.Test
 
-import static org.hamcrest.CoreMatchers.equalTo
-import static org.hamcrest.CoreMatchers.is
+import static org.hamcrest.CoreMatchers.*
 import static org.junit.Assert.assertThat
 
 class BamServerInfoFetcherTest {
@@ -67,11 +67,16 @@ class BamServerInfoFetcherTest {
     @Test
     void parse_noBamServer() {
         // arrange
+        def missingBam = new File('src/test/resources/noBamServerDomainConfig.xml')
 
         // act
+        def exception = GroovyAssert.shouldFail {
+            getResult missingBam, standardNodeManagerConfig
+        }
 
         // assert
-        fail 'write this'
+        assertThat exception.message,
+                   is(containsString('Was not able to find BAM server bam_server1!'))
     }
 
     @Test
