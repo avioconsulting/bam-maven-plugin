@@ -82,10 +82,15 @@ class BamServerInfoFetcherTest {
     @Test
     void parse_noNodeManagerConfig() {
         // arrange
+        def missingusername = new File('src/test/resources/differentNodeManagerFile.xml')
 
         // act
+        def exception = GroovyAssert.shouldFail {
+            getResult listenHostDomainConfig, missingusername
+        }
 
         // assert
-        fail 'write this'
+        assertThat exception.message,
+                   is(containsString('Was not able to find username/password!'))
     }
 }

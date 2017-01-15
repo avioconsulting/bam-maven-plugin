@@ -1,7 +1,5 @@
 package com.avioconsulting.bamexportrunner
 
-import groovy.util.slurpersupport.NodeChild
-
 class BamServerInfoFetcher {
     private final BamServerInfo info
     private final String BAM_SERVER = 'bam_server1'
@@ -24,6 +22,9 @@ class BamServerInfoFetcher {
         def nodeManagerConfig = new XmlSlurper().parse(nodeManagerInitInfoXml)
         String username = nodeManagerConfig.userName.text()
         String encryptedPassword = nodeManagerConfig.password.text()
+        if (username.empty || encryptedPassword.empty) {
+            throw new Exception("Was not able to find username/password! (in ${nodeManagerInitInfoXml.absolutePath})")
+        }
         this.info = new BamServerInfo(host,
                                       port,
                                       username,
