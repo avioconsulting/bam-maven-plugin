@@ -129,7 +129,8 @@
             </goals>
             <configuration>
               <outputDirectory>${soaLibDirectory}</outputDirectory>
-              <includeArtifactIds>groovy-all</includeArtifactIds>
+              <excludeTypes>pom</excludeTypes>
+              <excludeScope>provided</excludeScope>
               <overWriteReleases>false</overWriteReleases>
               <overWriteSnapshots>false</overWriteSnapshots>
               <overWriteIfNewer>true</overWriteIfNewer>
