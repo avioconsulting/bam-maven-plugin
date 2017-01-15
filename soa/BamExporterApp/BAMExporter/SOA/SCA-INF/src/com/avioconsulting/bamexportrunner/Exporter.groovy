@@ -11,8 +11,7 @@ class Exporter {
         def log = { text -> logText << text }
         def bamProjectNode = input.getElementsByTagName('bamProject').item(0)
         def bamProject = bamProjectNode.textContent
-        // TODO: Validate that project name has no special characters
-        log "BRADY: Will export BAM project ${bamProject}"
+        validateProjectName bamProject
         def bamPath = new File(System.getProperty("soa.oracle.home"), 'bam')
         def bamBinPath = new File(bamPath, 'bin')
         def script = new File(bamBinPath, 'bamcommand')
@@ -35,6 +34,23 @@ class Exporter {
         // temporary for debugging (or maybe keep this??)
         println logText.join("\n")
         return logText.join("\n")
+    }
+
+    static validateProjectName(String projectName) {
+        if (projectName.matches(/[A-Za-z0-9]+/)) {
+            return true
+        }
+        def message = "Project name '${projectName}' includes "
+        if (projectName.contains(' ')) {
+            message += 'a space'
+        }
+        else if (projectName.contains(';')) {
+            message += 'a semicolon'
+        }
+        else if (projectName.contains('"') || projectName.contains("'")) {
+            message += 'quotes'
+        }
+        throw new RuntimeException(message + " and that's not supported!")
     }
 
     static buildBamConnectConfig(File bamBinPath) {
