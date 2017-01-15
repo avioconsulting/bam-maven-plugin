@@ -6,9 +6,9 @@ import oracle.xml.parser.v2.XMLElement
 class Exporter {
     private static final int COMMAND_TIMEOUT_MINUTES = 5
 
-    static String doExport(XMLElement input) {
+    static ArrayList<String> doExport(XMLElement input) {
         def logText = []
-        def log = { text -> logText << text }
+        def log = { String text -> logText << text }
         def bamProjectNode = input.getElementsByTagName('bamProject').item(0)
         def bamProject = bamProjectNode.textContent
         validateProjectName bamProject
@@ -24,16 +24,14 @@ class Exporter {
         }
         buildBamConnectConfig bamBinPath
         def command = "${script} -cmd export -name ${bamProject} -type project -file ${exportFile}"
-        log "BRADY: Executing command ${command}"
+        log "Executing command ${command}"
         def result = command.execute()
         result.waitForOrKill(COMMAND_TIMEOUT_MINUTES * 60 * 1000)
         log result.text
         if (result.exitValue() != 0) {
             log 'ERROR: BAM command exited with non-zero status'
         }
-        // temporary for debugging (or maybe keep this??)
-        println logText.join("\n")
-        return logText.join("\n")
+        logText
     }
 
     static validateProjectName(String projectName) {
