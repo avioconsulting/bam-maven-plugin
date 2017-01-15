@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nod:nodeManagerInfo xmlns:nod="http://xmlns.oracle.com/cie/nodemanager">
+  <nod:userName>weblogic</nod:userName>
+  <nod:password>{AES}r4jhRwZAbxa66FXOWFeCDy3+3H0x7NOrJYHs4Bh7yqQ=</nod:password>
+  <nod:nodeManagerHome>/opt/oracle/config/domains/bpm_domain/nodemanager</nod:nodeManagerHome>
+  <nod:perDomainNodeManager>true</nod:perDomainNodeManager>
+  <nod:customLocationNodeManager>false</nod:customLocationNodeManager>
+  <nod:manualNodeManagerSetup>false</nod:manualNodeManagerSetup>
+</nod:nodeManagerInfo>

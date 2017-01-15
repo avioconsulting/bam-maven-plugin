@@ -26,7 +26,7 @@ class Exporter {
         def command = "${script} -cmd export -name ${bamProject} -type project -file ${exportFile}"
         log "BRADY: Executing command ${command}"
         def result = command.execute()
-        result.waitForOrKill(COMMAND_TIMEOUT_MINUTES*60*1000)
+        result.waitForOrKill(COMMAND_TIMEOUT_MINUTES * 60 * 1000)
         log result.text
         if (result.exitValue() != 0) {
             log 'ERROR: BAM command exited with non-zero status'
@@ -43,23 +43,29 @@ class Exporter {
         def message = "Project name '${projectName}' includes "
         if (projectName.contains(' ')) {
             message += 'a space'
-        }
-        else if (projectName.contains(';')) {
+        } else if (projectName.contains(';')) {
             message += 'a semicolon'
-        }
-        else if (projectName.contains('"') || projectName.contains("'")) {
+        } else if (projectName.contains('"') || projectName.contains("'")) {
             message += 'quotes'
         }
         throw new RuntimeException(message + " and that's not supported!")
     }
 
     static buildBamConnectConfig(File bamBinPath) {
-        // TODO: Derive these from domain config, etc.
+        def domainHome = System.getProperty("domain.home")
+        def configHome = new File(domainHome, 'config')
+        def configXmlPath = new File(configHome, 'config.xml')
+        def initInfoPath = new File(domainHome, 'init-info')
+        def nodeManagerXmlPath = new File(initInfoPath, 'config-nodemanager.xml')
+        def fetcher = new BamServerInfoFetcher(configXmlPath,
+                                               nodeManagerXmlPath,
+                                               new PasswordDecryptor(domainHome))
+        def info = fetcher.bamServerInfo
         def config = [
-                host    : 'localhost',
-                port    : '10001',
-                username: 'weblogic',
-                password: 'oracle1234'
+                host    : info.host,
+                port    : info.port,
+                username: info.username,
+                password: info.password
         ]
 
         def file = new File(bamBinPath, 'BAMCommandConfig.xml')

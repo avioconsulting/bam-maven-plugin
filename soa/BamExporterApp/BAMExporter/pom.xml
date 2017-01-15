@@ -28,6 +28,7 @@
     <outputFile>sca_${composite.name}_rev${composite.revision}.jar</outputFile>
     <soamds.apps.home>${project.basedir}../../NewStoreMds</soamds.apps.home>
     <soaLibDirectory>${project.basedir}/SOA/SCA-INF/lib</soaLibDirectory>
+    <soa.suite.version>12.2.1-2-0</soa.suite.version>
   </properties>
 
   <build>
@@ -177,28 +178,28 @@
     <dependency>
       <groupId>com.oracle.adf.library</groupId>
       <artifactId>BPEL-Runtime</artifactId>
-      <version>12.2.1-2-0</version>
+      <version>${soa.suite.version}</version>
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.oracle.adf.library</groupId>
       <artifactId>Mediator-Runtime</artifactId>
-      <version>12.2.1-2-0</version>
+      <version>${soa.suite.version}</version>
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.oracle.adf.library</groupId>
       <artifactId>MDS-Runtime</artifactId>
-      <version>12.2.1-2-0</version>
+      <version>${soa.suite.version}</version>
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.oracle.adf.library</groupId>
       <artifactId>BC4J-Service-Runtime</artifactId>
-      <version>12.2.1-2-0</version>
+      <version>${soa.suite.version}</version>
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
@@ -212,7 +213,7 @@
       <!-- Java embedding/payload -->
       <groupId>com.oracle.fmwshare</groupId>
       <artifactId>xmlparserv2</artifactId>
-      <version>12.2.1-2-0</version>
+      <version>${soa.suite.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -226,6 +227,12 @@
       <artifactId>hamcrest-library</artifactId>
       <version>1.3</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.weblogic</groupId>
+      <artifactId>com.oracle.weblogic.security.encryption</artifactId>
+      <version>${soa.suite.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>
