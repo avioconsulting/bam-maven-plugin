@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.55.33" id="beamVizInTeRnAlNaMeVIEW__1483740071150_DeTaIlEdPageDef" Package="beam.project.SPICE.view.InTeRnAlNaMeVIEW__1483740071150_DeTaIlEd.taskflow.InTeRnAlNaMeVIEW__1483740071150_DeTaIlEd">
+<executables>
+<variableIterator id="variables"/>
+</executables>
+<bindings>
+<eventBinding id="drivingEventBinding" Listener="javax.faces.event.ActionListener">
+<events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+<event name="drivingEvent" eventType="Action Event"/>
+</events>
+</eventBinding>
+<eventBinding id="drivingEventBindingForTables" Listener="org.apache.myfaces.trinidad.event.SelectionListener">
+<events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+<event name="drivingEvent"/>
+</events>
+</eventBinding>
+<eventBinding id="refreshViewEventBinding" Listener="javax.faces.event.ActionListener">
+<events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+<event name="refreshViewEvent" eventType="Action Event"/>
+</events>
+</eventBinding>
+<eventBinding id="refreshViewSelectionEventBinding" Listener="org.apache.myfaces.trinidad.event.SelectionListener">
+<events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+<event name="refreshViewEvent" eventType="Selection Event"/>
+</events>
+</eventBinding>
+<eventBinding id="refreshViewDialogEventBinding" Listener="oracle.adf.view.rich.event.DialogListener">
+<events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+<event name="refreshViewEvent" eventType="Dialog Event"/>
+</events>
+</eventBinding>
+<eventBinding id="refreshViewClickEventBinding" Listener="oracle.adf.view.faces.bi.event.ClickListener">
+<events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+<event name="refreshViewEvent" eventType="Click Event"/>
+</events>
+</eventBinding>
+<methodAction id="setParameters" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setParameters" IsViewObjectMethod="false" DataControl="EventHandler" InstanceName="EventHandler.dataProvider"/>
+<methodAction id="setGroups" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setGroups" IsViewObjectMethod="false" DataControl="EventHandler" InstanceName="EventHandler.dataProvider"/>
+<methodAction id="setFilter" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setFilter" IsViewObjectMethod="false" DataControl="EventHandler" InstanceName="EventHandler.dataProvider"/>
+<methodAction id="handleValueChangeEvent" InstanceName="EventHandler.dataProvider" DataControl="EventHandler" RequiresUpdateModel="true" Action="invokeMethod" MethodName="handleValueChangeEvent" IsViewObjectMethod="false">
+<NamedData NDName="payload" NDType="java.lang.Object"/>
+</methodAction>
+<methodAction id="handleActionEvent" InstanceName="EventHandler.dataProvider" DataControl="EventHandler" RequiresUpdateModel="true" Action="invokeMethod" MethodName="handleActionEvent" IsViewObjectMethod="false">
+<NamedData NDName="payload" NDType="java.lang.Object"/>
+</methodAction>
+</bindings>
+<eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+<event name="propValueChangeEvent">
+<producer region="*">
+<consumer region="" handler="handleValueChangeEvent" refresh="false">
+<parameters>
+<parameter name="payload" value="#{payLoad}"/>
+</parameters>
+</consumer>
+</producer>
+</event>
+<event name="propActionEvent">
+<producer region="*">
+<consumer region="" handler="handleActionEvent" refresh="false">
+<parameters>
+<parameter name="payload" value="#{payLoad}"/>
+</parameters>
+</consumer>
+</producer>
+</event>
+<event name="nodeNotification">
+<producer region="*">
+<consumer handler="nodeRenameNotificationtConsumer"/>
+</producer>
+</event>
+</eventMap>
+</pageDefinition>

@@ -1,0 +1,214 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces" xmlns:f="http://java.sun.com/jsf/core" xmlns:tr="http://myfaces.apache.org/trinidad">
+<af:panelStretchLayout id="pslcontainer">
+<f:facet name="bottom"/>
+<f:facet name="center"/>
+<f:facet name="start"/>
+<f:facet name="end"/>
+<f:facet name="top"/>
+</af:panelStretchLayout>
+<af:panelGroupLayout id="popupgrouplayout">
+<af:popup id="fieldListMenu" popupFetchListener="#{pageFlowScope.visualizationEditor.fieldMenuFetchListener}" contentDelivery="lazyUncached">
+<af:dialog id="groupsDialog" title=" " dialogListener="#{pageFlowScope.visualizationEditor.setGroupsToApply}" modal="false" inlineStyle="width:220px;">
+<af:panelGroupLayout id="pgl3era" layout="vertical">
+<af:spacer width="10" height="8" id="s138"/>
+<af:panelGroupLayout id="panelGroupLayout3" layout="horizontal">
+<af:outputText value="#{DesignerBundle.DIMENTIONS_X_AXIS}" id="ot3" inlineStyle="font-weight:bold;"/>
+<af:spacer width="8" height="8" id="spacer57"/>
+<af:commandImageLink id="ci" partialSubmit="true" icon="/images/arrange_up_ena.png" actionListener="#{pageFlowScope.visualizationEditor.onMoveUp}"/>
+<af:spacer width="8" height="8" id="spacer4"/>
+<af:commandImageLink id="cil4" partialSubmit="true" icon="/images/arrange_down_ena.png" actionListener="#{pageFlowScope.visualizationEditor.onMoveDown}"/>
+<af:spacer width="20" height="10" id="spacer9"/>
+</af:panelGroupLayout>
+<af:spacer width="15" height="5" id="s2455"/>
+<af:panelGroupLayout id="pgldimsmc" layout="vertical" inlineStyle="background-color:White; outline-color:Gray; outline-style:solid; outline-width:thin; padding:4px; width:200px; height:auto;" styleClass="AFStretchWidth">
+<af:table id="smc13" value="#{pageFlowScope.visualizationEditor.fieldListValues}" var="row" horizontalGridVisible="false" styleClass="AFStretchWidth" verticalGridVisible="false" autoHeightRows="10" fetchSize="10" binding="#{pageFlowScope.visualizationEditor.groupsTable}" inlineStyle="border-color:White; background-color:White;" contentDelivery="immediate" rowBandingInterval="0" varStatus="vs" columnStretching="last" partialTriggers="::ci ::cil4" rowSelection="single" emptyText="#{DesignerBundle.BIZ_VIEW_EDITOR_DETAILS_NO_DATA}">
+<af:column id="c1" rowHeader="unstyled" inlineStyle="padding-bottom:4px;">
+<f:facet name="header"/>
+<af:selectBooleanCheckbox label=" " id="sbc4" value="#{pageFlowScope.visualizationEditor.selectedGroups[row]}" simple="true" text="#{row}" autoSubmit="true"/>
+</af:column>
+</af:table>
+</af:panelGroupLayout>
+</af:panelGroupLayout>
+</af:dialog>
+</af:popup>
+<af:popup id="viewSettingsMenu" contentDelivery="lazyUncached">
+<af:dialog id="filterdialog" title="#{(DesignerBundle.DASHBOARD_RUNTIME_FILTERS_AND_ACTIVE_DATA_PROPERTIES)}" dialogListener="#{pageFlowScope.visualizationEditor.setFiltersAndMakeActive}" modal="false" inlineStyle="width:720px;">
+<af:panelTabbed id="pt1" inlineStyle="height:350px; width:700px;" partialTriggers="sbc1">
+<af:showDetailItem text="#{DesignerBundle.FILTER_GROUP_TAB_HEADER}" id="sdi2" inlineStyle="width:720px; height:280px;" disabled="#{pageFlowScope.visualizationEditor.activeDataProperties.isConvertToContinuousQuery}">
+<af:panelGroupLayout id="pgl753" layout="vertical" valign="top" inlineStyle="background-color:White; width:700px;">
+<af:selectOneChoice label="#{DesignerBundle.FILTERS}" id="soc5" value="#{pageFlowScope.visualizationEditor.filterType}" autoSubmit="true" labelStyle="font-weight:bold;">
+<af:selectItem label="#{DesignerBundle.BY_NUMBER}" value="NUMBER" id="si16"/>
+<af:selectItem label="#{DesignerBundle.BY_STRING}" value="VARCHAR" id="si17"/>
+<af:selectItem label="#{DesignerBundle.BY_DATE_TIME}" value="DATETIME" id="si18"/>
+</af:selectOneChoice>
+<af:table id="t1" shortDesc="#{DesignerBundle.BIZ_VIEW_EDITOR_FILTER_VALUES_LIST}" value="#{pageFlowScope.visualizationEditor.selectedTypeFieldMeasureListValues}" var="row" horizontalGridVisible="false" verticalGridVisible="false" autoHeightRows="8" fetchSize="30" binding="#{pageFlowScope.visualizationEditor.filterTable}" inlineStyle="border-color:White; background-color:White; width:700px;" contentDelivery="immediate" rowBandingInterval="0" varStatus="vs" columnStretching="column:c23" partialTriggers="::soc5">
+<af:column id="c3" rowHeader="unstyled" inlineStyle="width:165px; padding-top:10px;">
+<af:selectBooleanCheckbox id="sbc5" value="#{pageFlowScope.visualizationEditor.selectedFilters[row]}" simple="true" autoSubmit="true" text="#{pageFlowScope.visualizationEditor.selectedTypeFieldMeasureDispNameValue[row]}" valueChangeListener="#{pageFlowScope.visualizationEditor.onFilterColumnSelected}">
+<f:attribute name="selectedFilterCol" value="#{row}"/>
+</af:selectBooleanCheckbox>
+</af:column>
+<af:column id="c2" rowHeader="unstyled" inlineStyle="width:70px; padding-top:10px;" width="70">
+<af:selectOneChoice id="selectOneChoice9" label="#{DesignerBundle.EMPTY}" value="#{pageFlowScope.visualizationEditor.filterOperator[row]}" valueChangeListener="#{pageFlowScope.visualizationEditor.onOperatorSelected}" autoSubmit="true" partialTriggers="sbc5" visible="#{pageFlowScope.visualizationEditor.selectedFilters[row]}">
+<f:attribute name="index" value="#{vs.index}"/>
+<f:attribute name="field" value="#{row}"/>
+<f:selectItems value="#{pageFlowScope.visualizationEditor.columnOperatorItems[row]}" id="selectItems2"/>
+</af:selectOneChoice>
+</af:column>
+<af:column id="c23" rowHeader="unstyled" partialTriggers="sbc5" inlineStyle="padding-top: 10px;">
+<af:panelGroupLayout id="pgl10" partialTriggers="sbc5" visible="#{pageFlowScope.visualizationEditor.selectedFilters[row]}">
+<af:panelGroupLayout id="pgl2" binding="#{pageFlowScope.visualizationEditor.filterValuesPgl}" visible="#{!((pageFlowScope.visualizationEditor.filterOperator[row] == 'NULL') || (pageFlowScope.visualizationEditor.filterOperator[row] == 'NOTNULL'))}">
+<af:panelGroupLayout id="pgl460" layout="horizontal" valign="top" rendered="#{(pageFlowScope.visualizationEditor.columnDataType[row] == 'INT') ||                      (pageFlowScope.visualizationEditor.columnDataType[row] == 'FLOAT') || (pageFlowScope.visualizationEditor.columnDataType[row] == 'DECIMAL')}">
+<af:switcher id="s10" defaultFacet="DEFAULT" facetName="#{(pageFlowScope.visualizationEditor.filterOperatorFacetNameMap[pageFlowScope.visualizationEditor.filterOperator[row]]) != null ?                                       (pageFlowScope.visualizationEditor.filterOperatorFacetNameMap[pageFlowScope.visualizationEditor.filterOperator[row]]): 'DEFAULT'}">
+<f:facet name="DEFAULT">
+<af:inputText id="filterit" label=" " value="#{pageFlowScope.visualizationEditor.filterValues[row]}">
+<af:convertNumber/>
+</af:inputText>
+</f:facet>
+<f:facet name="BETWEEN">
+<af:panelGroupLayout id="pgl13651" layout="horizontal" halign="center">
+<af:inputText id="id352" value="#{pageFlowScope.visualizationEditor.numberFilterBetweenOperatorMinValue[row]}" styleClass="AFStretchWidth" columns="12" autoSubmit="true" simple="true">
+<af:convertNumber locale="#{generalPreferencesBean.locale}"/>
+</af:inputText>
+<af:spacer width="5" height="5"/>
+<af:outputText value="#{DesignerBundle.AND}" id="ot2"/>
+<af:spacer width="5" height="5"/>
+<af:inputText id="id3" value="#{pageFlowScope.visualizationEditor.numberFilterBetweenOperatorMaxValue[row]}" styleClass="AFStretchWidth" columns="12" autoSubmit="true" simple="true">
+<af:convertNumber locale="#{generalPreferencesBean.locale}"/>
+</af:inputText>
+</af:panelGroupLayout>
+</f:facet>
+</af:switcher>
+</af:panelGroupLayout>
+<af:panelGroupLayout id="pgl4" rendered="#{(pageFlowScope.visualizationEditor.columnDataType[row] == 'VARCHAR')}" layout="vertical">
+<af:switcher id="s14" defaultFacet="DEFAULT" facetName="#{(pageFlowScope.visualizationEditor.filterOperatorFacetNameMap[pageFlowScope.visualizationEditor.filterOperator[row]]) != null ?                                       (pageFlowScope.visualizationEditor.filterOperatorFacetNameMap[pageFlowScope.visualizationEditor.filterOperator[row]]): 'DEFAULT'}">
+<f:facet name="DEFAULT">
+<af:selectManyChoice label=" " id="smc1" value="#{pageFlowScope.visualizationEditor.stringFilterValuesList[row]}" simple="true" inlineStyle="width:180px;">
+<f:selectItems value="#{(pageFlowScope.visualizationEditor.stringColumnOptionsSI[row])}" id="si19"/>
+</af:selectManyChoice>
+</f:facet>
+<f:facet name="LIKE">
+<af:inputText id="it6" label=" " value="#{pageFlowScope.visualizationEditor.filterValues[row]}"/>
+</f:facet>
+</af:switcher>
+</af:panelGroupLayout>
+<af:panelGroupLayout id="pgl7" layout="horizontal" valign="top" rendered="#{(pageFlowScope.visualizationEditor.columnDataType[row] == 'DATETIME')}">
+<af:switcher id="s19" defaultFacet="DEFAULT" facetName="#{(pageFlowScope.visualizationEditor.filterOperatorFacetNameMap[pageFlowScope.visualizationEditor.filterOperator[row]]) != null ?                                       (pageFlowScope.visualizationEditor.filterOperatorFacetNameMap[pageFlowScope.visualizationEditor.filterOperator[row]]): 'DEFAULT'}">
+<f:facet name="DEFAULT">
+<af:inputDate id="id1" label="#{DesignerBundle.EMPTY}" value="#{pageFlowScope.visualizationEditor.filterValues[row]}">
+<af:convertDateTime pattern="#{pageFlowScope.visualizationEditor.strDataTimePattern}" type="both" locale="#{generalPreferencesBean.locale}" timeZone="#{generalPreferencesBean.timeZone}"/>
+</af:inputDate>
+</f:facet>
+<f:facet name="BETWEEN">
+<af:panelGroupLayout id="pgl11" layout="horizontal" halign="center">
+<af:inputDate id="id2" label="#{DesignerBundle.EMPTY}" value="#{pageFlowScope.visualizationEditor.dateFilterBetweenOperatorMinValue[row]}" columns="9" autoSubmit="true">
+<af:convertDateTime pattern="#{pageFlowScope.visualizationEditor.strDataTimePattern}" type="both" locale="#{generalPreferencesBean.locale}" timeZone="#{generalPreferencesBean.timeZone}"/>
+</af:inputDate>
+<af:spacer width="5" height="5"/>
+<af:outputText value="#{DesignerBundle.AND}" id="ot1"/>
+<af:spacer width="5" height="5"/>
+<af:inputDate id="id4" label="#{DesignerBundle.EMPTY}" value="#{pageFlowScope.visualizationEditor.dateFilterBetweenOperatorMaxValue[row]}" styleClass="AFStretchWidth" columns="9" autoSubmit="true">
+<af:convertDateTime pattern="#{pageFlowScope.visualizationEditor.strDataTimePattern}" type="both" locale="#{generalPreferencesBean.locale}" timeZone="#{generalPreferencesBean.timeZone}"/>
+</af:inputDate>
+</af:panelGroupLayout>
+</f:facet>
+<f:facet name="LIKE">
+<af:inputText id="it5" label=" " value="#{pageFlowScope.visualizationEditor.filterValues[row]}" placeholder="MM/DD/YYYY HH12:MI:SS.FF3 AM" required="true"/>
+</f:facet>
+</af:switcher>
+</af:panelGroupLayout>
+</af:panelGroupLayout>
+</af:panelGroupLayout>
+</af:column>
+<af:column id="c58" rowHeader="unstyled" inlineStyle="width:180px; padding-top:10px;" partialTriggers="sbc5">
+<f:facet name="header"/>
+<af:outputText value="#{pageFlowScope.visualizationEditor.measureMinMaxValuesString[row]}" id="ot4" partialTriggers="sbc5" visible="#{pageFlowScope.visualizationEditor.selectedFilters[row]}"/>
+</af:column>
+</af:table>
+</af:panelGroupLayout>
+</af:showDetailItem>
+<af:showDetailItem text="#{DesignerBundle.ACTIVE_TAB_HEADER}" id="sdi1" stretchChildren="first" rendered="#{!pageFlowScope.visualizationEditor.viewHasExternalDO and pageFlowScope.visualizationEditor.renderMakeActiveTab}">
+<af:panelGroupLayout id="turnqueryPgl" layout="scroll">
+<af:selectBooleanCheckbox text="#{DesignerBundle.CONVERT_TO_CONTINUOUS_QUERY}" simple="true" id="sbc1" value="#{pageFlowScope.visualizationEditor.activeDataProperties.isConvertToContinuousQuery}" validator="#{pageFlowScope.visualizationEditor.makeActiveValidator}" label=" " shortDesc="#{DesignerBundle.ACTIVE_TO_TACTICAL_CONFIRM_MSG}" disabled="#{!pageFlowScope.visualizationEditor.activeDataProperties.isConvertToContinuousQuery                                                     or pageFlowScope.visualizationEditor.isSliceDiceGroupsUpdated                                                     or pageFlowScope.visualizationEditor.isFilterEnabled}"/>
+<af:spacer width="10" height="2" id="s4"/>
+<af:separator id="s1"/>
+<af:spacer width="10" height="2" id="s5"/>
+<af:selectOneChoice label="#{DesignerBundle.BEAM_ACTIVE_DATA_TABLE_RECORD_INSERT_POSITION}" id="soc2x" autoSubmit="true" value="#{pageFlowScope.visualizationEditor.activeDataProperties.tableInsertRecordPosition}" rendered="#{pageFlowScope.visualizationEditor.listView}" partialTriggers="sbc1" disabled="#{!pageFlowScope.visualizationEditor.activeDataProperties.isConvertToContinuousQuery}" inlineStyle="margin-bottom:5px;">
+<af:selectItem label="#{DesignerBundle.BEAM_ACTIVE_DATA_TABLE_RECORD_INSERT_BEFORE}" value="INSERT_BEFORE" id="si2x"/>
+<af:selectItem label="#{DesignerBundle.BEAM_ACTIVE_DATA_TABLE_RECORD_INSERT_AFTER}" value="INSERT_AFTER" id="si10x"/>
+</af:selectOneChoice>
+<af:selectBooleanCheckbox text="#{DesignerBundle.ACTIVE_DATA_COLLAPSING}" simple="true" id="sbc3" label=" " disabled="true" autoSubmit="true" partialTriggers="sbc1 sbc2" value="#{pageFlowScope.visualizationEditor.activeDataProperties.isActiveDataCollapsing}"/>
+<af:panelGroupLayout id="pgltimewindow" layout="horizontal">
+<af:spacer width="12" height="10" id="s13"/>
+<af:inputNumberSpinbox label="#{DesignerBundle.INTERVAL}" id="it4" minimum="1" disabled="true" value="#{pageFlowScope.visualizationEditor.activeDataProperties.activeDataCollapseInerval}" partialTriggers="sbc3 sbc1" columns="6">
+<af:convertNumber type="number" locale="#{generalPreferencesBean.locale}" groupingUsed="false"/>
+<af:validateRegExp pattern="[0-9]*"/>
+</af:inputNumberSpinbox>
+<af:selectOneChoice label=" " id="soc2" autoSubmit="true" value="#{pageFlowScope.visualizationEditor.activeDataProperties.activeDataCollapseInervalUnit}" simple="true" disabled="true" partialTriggers="sbc3 sbc1">
+<af:selectItem label="#{DesignerBundle.SECONDS}" value="seconds" id="si2"/>
+<af:selectItem label="#{DesignerBundle.MINUTES}" value="minutes" id="si10"/>
+</af:selectOneChoice>
+</af:panelGroupLayout>
+<af:spacer width="10" height="5" id="s12"/>
+<af:panelGroupLayout id="timewindowpgl" layout="horizontal">
+<af:selectBooleanCheckbox text="#{DesignerBundle.USE_A_TIME_WINDOW}" id="sbc2" value="#{pageFlowScope.visualizationEditor.activeDataProperties.isTimeWindowEnabled}" disabled="true" label="" partialTriggers="sbc1 sbc3" simple="true" autoSubmit="true"/>
+</af:panelGroupLayout>
+<af:spacer width="10" height="5" id="s6"/>
+<af:panelGroupLayout id="rangeSelecPgl" layout="horizontal" visible="#{(pageFlowScope.visualizationEditor.relationalDO)}">
+<af:spacer width="2" height="10" id="s11"/>
+<af:selectOneChoice label="#{DesignerBundle.SLIDING_RANGE_BASED_ON}" id="soc1" disabled="true" partialTriggers="sbc2 sbc1" value="#{pageFlowScope.visualizationEditor.activeDataProperties.dataObjectTimeField}">
+<f:selectItems value="#{pageFlowScope.visualizationEditor.timeFieldsInDataObject}" id="sitimedo"/>
+</af:selectOneChoice>
+</af:panelGroupLayout>
+<af:spacer width="10" height="5" id="s7"/>
+<af:panelGroupLayout id="rangeLengthPgl" layout="horizontal">
+<af:spacer width="60" height="10" id="s2"/>
+<af:inputText label="#{DesignerBundle.RANGE_LENGTH}" id="it1" disabled="true" partialTriggers="sbc2 sbc1" columns="3" value="#{pageFlowScope.visualizationEditor.activeDataProperties.rangeLength}">
+<af:convertNumber type="number" locale="#{generalPreferencesBean.locale}" groupingUsed="false"/>
+<af:validateRegExp pattern="[0-9]*"/>
+</af:inputText>
+<af:spacer width="3" height="10" id="s17"/>
+<af:selectOneChoice label=" " id="soc4" autoSubmit="true" value="#{pageFlowScope.visualizationEditor.activeDataProperties.rangeLengthUnit}" simple="true" disabled="true" partialTriggers="sbc2 sbc1">
+<af:selectItem label="#{DesignerBundle.SECONDS}" value="seconds" id="si11"/>
+<af:selectItem label="#{DesignerBundle.MINUTES}" value="minutes" id="si12"/>
+<af:selectItem label="#{DesignerBundle.HOUR}" value="hours" id="si9"/>
+</af:selectOneChoice>
+</af:panelGroupLayout>
+<af:spacer width="10" height="5" id="s8"/>
+<af:panelGroupLayout id="upadteIntPgl" layout="horizontal">
+<af:spacer width="52" height="10" id="s3"/>
+<af:inputText label="#{DesignerBundle.UPDATE_INTERVAL}" id="it2" disabled="true" partialTriggers="sbc2 sbc1" columns="3" value="#{pageFlowScope.visualizationEditor.activeDataProperties.updateInterval}">
+<af:convertNumber type="number" locale="#{generalPreferencesBean.locale}" groupingUsed="false"/>
+<af:validateRegExp pattern="[0-9]*"/>
+</af:inputText>
+<af:spacer width="3" height="10" id="s9"/>
+<af:selectOneChoice label=" " id="soc3" autoSubmit="true" value="#{pageFlowScope.visualizationEditor.activeDataProperties.updateIntervalUnit}" simple="true" disabled="true" partialTriggers="sbc2 sbc1">
+<af:selectItem label="#{DesignerBundle.SECONDS}" value="seconds" id="si13"/>
+<af:selectItem label="#{DesignerBundle.MINUTES}" value="minutes" id="si14"/>
+<af:selectItem label="#{DesignerBundle.HOUR}" value="hours" id="si15"/>
+</af:selectOneChoice>
+</af:panelGroupLayout>
+</af:panelGroupLayout>
+</af:showDetailItem>
+</af:panelTabbed>
+</af:dialog>
+</af:popup>
+<af:popup id="actionsMenu">
+<af:menu>
+<af:forEach items="#{pageFlowScope.actionbuttonbean.actionButtons}" var="row">
+<af:commandMenuItem text="#{row.name}" actionListener="#{pageFlowScope.actionbuttonbean.OnActionButtonClick}"/>
+</af:forEach>
+</af:menu>
+</af:popup>
+<af:popup id="ShowConfirmationMessageAction" contentDelivery="lazyUncached">
+<af:dialog id="ShowConfirmationMessageActionDialog" modal="true" title="#{DesignerBundle.CONFIRM}" type="yesNo" dialogListener="#{pageFlowScope.actionbuttonbean.ConfirmationMessageHandler}">
+<af:outputText id="it3" value="" styleClass="AFStretchWidth"/>
+</af:dialog>
+</af:popup>
+<af:popup id="emptyGroupError" contentDelivery="lazyUncached" binding="#{pageFlowScope.visualizationEditor.emptyGroupErrorPopup}">
+<af:dialog id="emptyGroupDialog" modal="true" title="#{DesignerBundle.ERROR}" type="ok">
+<af:outputText id="ot5" value="#{DesignerBundle.SLICE_DICE_GROUP_SELECT_ERROR_EMPTY}" styleClass="AFStretchWidth"/>
+</af:dialog>
+</af:popup>
+</af:panelGroupLayout>
+</jsp:root>

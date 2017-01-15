@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<mds:customization version="12.2.1_20161008.1648" xmlns:mds="http://xmlns.oracle.com/mds" motype_local_name="root" motype_nsuri="http://java.sun.com/JSP/Page">
+<mds:replace node="pslcontainer"/>
+<mds:insert parent="(xmlns(jsp=http://java.sun.com/JSP/Page))/jsp:root" position="last">
+<panelStretchLayout id="pslcontainer3" styleClass="AFStretchWidth" xmlns="http://xmlns.oracle.com/adf/faces/rich">
+<facet name="bottom" xmlns="http://java.sun.com/jsf/core"/>
+<facet name="center" xmlns="http://java.sun.com/jsf/core">
+<table value="#{bindings.Query.collectionModel}" var="row" rows="#{bindings.Query.rangeSize}" emptyText="#{bindings.Query.viewable ? 'No data to display.' : 'Access Denied.'}" rowBandingInterval="0" fetchSize="#{bindings.Query.rangeSize}" id="DTTable" columnStretching="none" autoHeightRows="-1" contentDelivery="immediate" xmlns="http://xmlns.oracle.com/adf/faces/rich">
+<column sortProperty="#{bindings.Query.hints.DATAOBJECT_CREATED.name}" sortable="true" headerText="#{bindings.Query.hints.DATAOBJECT_CREATED.label}" visible="true">
+<outputText value="#{row.DATAOBJECT_CREATED}" shortDesc="#{bindings.Query.hints.DATAOBJECT_CREATED.tooltip}">
+<convertDateTime pattern="yy/MM/dd h:mm:ss a" timeZone="#{generalPreferencesBean.timeZone}"/>
+</outputText>
+</column>
+<column sortProperty="#{bindings.Query.hints.DATAOBJECT_MODIFIED.name}" sortable="true" headerText="#{bindings.Query.hints.DATAOBJECT_MODIFIED.label}" visible="true">
+<outputText value="#{row.DATAOBJECT_MODIFIED}" shortDesc="#{bindings.Query.hints.DATAOBJECT_MODIFIED.tooltip}">
+<convertDateTime pattern="yy/MM/dd h:mm:ss a" timeZone="#{generalPreferencesBean.timeZone}"/>
+</outputText>
+</column>
+<column sortProperty="#{bindings.Query.hints.Claims_Count.name}" sortable="true" headerText="#{bindings.Query.hints.Claims_Count.label}" visible="true">
+<outputText value="#{row.Claims_Count}" shortDesc="#{bindings.Query.hints.Claims_Count.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.Creation_Time.name}" sortable="true" headerText="#{bindings.Query.hints.Creation_Time.label}" visible="true">
+<outputText value="#{row.Creation_Time}" shortDesc="#{bindings.Query.hints.Creation_Time.tooltip}">
+<convertDateTime pattern="yy/MM/dd h:mm:ss a" timeZone="#{generalPreferencesBean.timeZone}"/>
+</outputText>
+</column>
+<column sortProperty="#{bindings.Query.hints.File_Error.name}" sortable="true" headerText="#{bindings.Query.hints.File_Error.label}" visible="true">
+<outputText value="#{row.File_Error}" shortDesc="#{bindings.Query.hints.File_Error.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.File_Name.name}" sortable="true" headerText="#{bindings.Query.hints.File_Name.label}" visible="true">
+<outputText value="#{row.File_Name}" shortDesc="#{bindings.Query.hints.File_Name.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.File_Status.name}" sortable="true" headerText="#{bindings.Query.hints.File_Status.label}" visible="true">
+<outputText value="#{row.File_Status}" shortDesc="#{bindings.Query.hints.File_Status.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.Plan_Name.name}" sortable="true" headerText="#{bindings.Query.hints.Plan_Name.label}" visible="true">
+<outputText value="#{row.Plan_Name}" shortDesc="#{bindings.Query.hints.Plan_Name.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.Rejected_Claims_Count.name}" sortable="true" headerText="#{bindings.Query.hints.Rejected_Claims_Count.label}" visible="true">
+<outputText value="#{row.Rejected_Claims_Count}" shortDesc="#{bindings.Query.hints.Rejected_Claims_Count.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.Start_Time.name}" sortable="true" headerText="#{bindings.Query.hints.Start_Time.label}" visible="true">
+<outputText value="#{row.Start_Time}" shortDesc="#{bindings.Query.hints.Start_Time.tooltip}">
+<convertDateTime pattern="yy/MM/dd h:mm:ss a" timeZone="#{generalPreferencesBean.timeZone}"/>
+</outputText>
+</column>
+<column sortProperty="#{bindings.Query.hints.Error_Threshold.name}" sortable="true" headerText="#{bindings.Query.hints.Error_Threshold.label}" visible="true">
+<outputText value="#{row.Error_Threshold}" shortDesc="#{bindings.Query.hints.Error_Threshold.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.Last_Creation_Date.name}" sortable="true" headerText="#{bindings.Query.hints.Last_Creation_Date.label}" visible="true">
+<outputText value="#{row.Last_Creation_Date}" shortDesc="#{bindings.Query.hints.Last_Creation_Date.tooltip}">
+<convertDateTime pattern="yy/MM/dd h:mm:ss a" timeZone="#{generalPreferencesBean.timeZone}"/>
+</outputText>
+</column>
+<column sortProperty="#{bindings.Query.hints.Trading_Partner.name}" sortable="true" headerText="#{bindings.Query.hints.Trading_Partner.label}" visible="true">
+<outputText value="#{row.Trading_Partner}" shortDesc="#{bindings.Query.hints.Trading_Partner.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.Plan_Name_Full.name}" sortable="true" headerText="#{bindings.Query.hints.Plan_Name_Full.label}" visible="true">
+<outputText value="#{row.Plan_Name_Full}" shortDesc="#{bindings.Query.hints.Plan_Name_Full.tooltip}"/>
+</column>
+<column sortProperty="#{bindings.Query.hints.ACK_Date.name}" sortable="true" headerText="#{bindings.Query.hints.ACK_Date.label}" visible="true">
+<outputText value="#{row.ACK_Date}" shortDesc="#{bindings.Query.hints.ACK_Date.tooltip}">
+<convertDateTime pattern="yy/MM/dd h:mm:ss a" timeZone="#{generalPreferencesBean.timeZone}"/>
+</outputText>
+</column>
+<column sortProperty="#{bindings.Query.hints.INS_Date.name}" sortable="true" headerText="#{bindings.Query.hints.INS_Date.label}" visible="true">
+<outputText value="#{row.INS_Date}" shortDesc="#{bindings.Query.hints.INS_Date.tooltip}">
+<convertDateTime pattern="yy/MM/dd h:mm:ss a" timeZone="#{generalPreferencesBean.timeZone}"/>
+</outputText>
+</column>
+<column sortProperty="#{bindings.Query.hints.REC_Date.name}" sortable="true" headerText="#{bindings.Query.hints.REC_Date.label}" visible="true">
+<outputText value="#{row.REC_Date}" shortDesc="#{bindings.Query.hints.REC_Date.tooltip}">
+<convertDateTime pattern="yy/MM/dd h:mm:ss a" timeZone="#{generalPreferencesBean.timeZone}"/>
+</outputText>
+</column>
+</table>
+</facet>
+<facet name="start" xmlns="http://java.sun.com/jsf/core"/>
+<facet name="end" xmlns="http://java.sun.com/jsf/core"/>
+<facet name="top" xmlns="http://java.sun.com/jsf/core">
+<panelGroupLayout id="pgl1" halign="right" layout="horizontal" xmlns="http://xmlns.oracle.com/adf/faces/rich">
+<commandButton id="backButton" visible="#{pageFlowScope.visualizationEditor.backButtonVisible}" action="done" actionListener="#{pageFlowScope.visualizationEditor.onClickBack}" text="#{DesignerBundle.BIZ_VIEW_EDITOR_BACK}"/>
+<spacer id="spacer1" width="400" height="20"/>
+<commandImageLink id="exportAllHidden" partialSubmit="false" visible="false" icon="/images/func_download_16_btn_ena.png" shortDesc="Export123" clientComponent="true">
+<exportCollectionActionListener type="CSV" exportedId="DTTable" filename="dataexport.csv" title="ADF Faces Export - All" charset="utf-8" exportedRows="all"/>
+</commandImageLink>
+<commandImageLink id="exportAll" partialSubmit="true" visible="true" icon="/images/func_download_16_btn_ena.png" shortDesc="Export" clientComponent="true" actionListener="#{pageFlowScope.visualizationEditor.exportData}"/>
+</panelGroupLayout>
+</facet>
+</panelStretchLayout>
+</mds:insert>
+<mds:replace node="popupgrouplayout"/>
+</mds:customization>

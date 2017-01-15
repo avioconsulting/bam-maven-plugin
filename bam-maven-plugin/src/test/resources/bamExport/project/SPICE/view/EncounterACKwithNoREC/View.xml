@@ -1,0 +1,419 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ns0:businessView xmlns:ns0="http://xmlns.oracle.com/bam/bam12">
+<name>EncounterACKwithNoREC</name>
+<id>/project/SPICE/view/EncounterACKwithNoREC</id>
+<displayName>/SPICE/Encounter ACK with no REC Files</displayName>
+<internal>false</internal>
+<useHive>false</useHive>
+<systemManaged>false</systemManaged>
+<createdDate>2017-01-14T18:34:05.529-06:00</createdDate>
+<modifiedDate>2017-01-14T18:34:05.529-06:00</modifiedDate>
+<createdBy>weblogic</createdBy>
+<modifiedBy>weblogic</modifiedBy>
+<status>OK</status>
+<addDefaultPermissions>true</addDefaultPermissions>
+<m_strBusinessViewName>BeamVisualization</m_strBusinessViewName>
+<m_strBusinessViewsProjectName>SPICE</m_strBusinessViewsProjectName>
+<m_oBusinessViewType>TABLE</m_oBusinessViewType>
+<m_oBusinessViewSubtype>
+<m_oBusinessViewType>TABLE</m_oBusinessViewType>
+<m_strViewSubType>UOL</m_strViewSubType>
+</m_oBusinessViewSubtype>
+<m_oBusinessViewLayout>LEGEND_ONLY</m_oBusinessViewLayout>
+<m_oBusinessQuery>
+<itemType>BusinessQuery</itemType>
+<projectName>SPICE</projectName>
+<itemName>EncounterACKwithNoREC</itemName>
+</m_oBusinessQuery>
+<viewTitle>
+<titleValue>
+<titleType>TITLE</titleType>
+<titleValue>Encounter ACK with no REC Files</titleValue>
+</titleValue>
+<font>
+<size>11</size>
+<color>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>255</alpha>
+</color>
+<bold>true</bold>
+<italic>false</italic>
+<underline>false</underline>
+<name>Tahoma</name>
+</font>
+<placement>LEFT</placement>
+<rendered>false</rendered>
+</viewTitle>
+<subTitle/>
+<bIsActive>false</bIsActive>
+<bIsMakeActiveRuntimeModificationAllowed>false</bIsMakeActiveRuntimeModificationAllowed>
+<oActionButtonDataList/>
+<bNeedsRefresh>false</bNeedsRefresh>
+<bNeedsRefresh2>false</bNeedsRefresh2>
+<bHasDirtyChanges>false</bHasDirtyChanges>
+<m_oProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns0:tableBusinessViewPropertiesImpl">
+<m_oActiveViewProperties>
+<internal>false</internal>
+<useHive>false</useHive>
+<systemManaged>false</systemManaged>
+<addDefaultPermissions>true</addDefaultPermissions>
+<m_bIsActiveDataCollapsing>true</m_bIsActiveDataCollapsing>
+<m_bIsTimeWindowEnabled>false</m_bIsTimeWindowEnabled>
+<m_strActiveDataCollapseInerval>30</m_strActiveDataCollapseInerval>
+<m_strTimeWindowType>Fixed</m_strTimeWindowType>
+<m_strDataObjectTimeField>DATAOBJECT_CREATED</m_strDataObjectTimeField>
+<m_strRangeLength>1</m_strRangeLength>
+<m_strUpdateInterval>30</m_strUpdateInterval>
+<m_strRangeLengthUnit>hours</m_strRangeLengthUnit>
+<m_strUpdateIntervalUnit>seconds</m_strUpdateIntervalUnit>
+<m_strActiveDataCollapseInervalUnit>seconds</m_strActiveDataCollapseInervalUnit>
+<m_strTableInsertRecordPosition>INSERT_BEFORE</m_strTableInsertRecordPosition>
+</m_oActiveViewProperties>
+<m_oPropertiesMap>
+<entries>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">rowSelection</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">single</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">horizontalGridVisible</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">false</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">columnSelection</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">single</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">color</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default></value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">displayRow</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(first)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">contentDelivery</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(whenAvailable)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">emptyText</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string"/>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">font-weight</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(normal)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">font-size</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">11</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">columnResizing</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">enabled</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">disableColumnReordering</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">false</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">rowBandingInterval</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">1</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">columnBandingInterval</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">background-color</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(transparent)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">verticalGridVisible</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">false</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">columnStretching</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">multiple</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">font-family</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">Tahoma</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">border-width</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(medium)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">border-style</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(none)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">text-align</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default></value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">border</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">padding</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">margin</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">fetchSize</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">text-decoration</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(none)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">vertical-align</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(baseline)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">border-color</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default></value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">shortDescription</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">Table Description</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">font-style</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(normal)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">rendered</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(true)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">first</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+</entries>
+</m_oPropertiesMap>
+<m_bBorderTransparent>true</m_bBorderTransparent>
+<m_oBorderColor>
+<red>255</red>
+<green>255</green>
+<blue>255</blue>
+<alpha>255</alpha>
+</m_oBorderColor>
+<m_bFillTransparent>true</m_bFillTransparent>
+<m_oFillColor>
+<red>255</red>
+<green>255</green>
+<blue>255</blue>
+<alpha>255</alpha>
+</m_oFillColor>
+<m_strHeight>auto</m_strHeight>
+<m_strWidth>100%</m_strWidth>
+<m_oVisibleColumns>
+<entries>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">Creation_Time</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:boolean">true</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">ACK_Date</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:boolean">true</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">File_Name</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:boolean">true</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">File_Status</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:boolean">true</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">BEAM_ID</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:boolean">true</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">PlanNameWithAbbreviation</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:boolean">true</value>
+</entry>
+</entries>
+</m_oVisibleColumns>
+<m_oColumnHeaderColor>
+<entries/>
+</m_oColumnHeaderColor>
+<m_oColumnHeaderText>
+<entries>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">Creation_Time</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">Creation Time</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">ACK_Date</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">ACK Date</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">File_Name</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">File Name</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">File_Status</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">File Status</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">BEAM_ID</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">BEAM_ID</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">PlanNameWithAbbreviation</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">Plan Name</value>
+</entry>
+</entries>
+</m_oColumnHeaderText>
+<m_oColumnColor>
+<entries/>
+</m_oColumnColor>
+<m_oTableColumnPorperties>
+<m_strFont>Tahoma</m_strFont>
+<m_iSize>11</m_iSize>
+<m_bBold>true</m_bBold>
+<m_iItalics>false</m_iItalics>
+<m_bUnderline>false</m_bUnderline>
+<m_showHeader>true</m_showHeader>
+<m_bApplyCommonHeaderFillColor>false</m_bApplyCommonHeaderFillColor>
+<m_oColor>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>255</alpha>
+</m_oColor>
+<m_oPlacement>CENTER</m_oPlacement>
+<m_textFont>Tahoma</m_textFont>
+<m_textSize>11</m_textSize>
+<m_textBold>false</m_textBold>
+<m_textItalics>false</m_textItalics>
+<m_textUnderline>false</m_textUnderline>
+<m_textColor>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>255</alpha>
+</m_textColor>
+<m_oCommonHeaderFillColor>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>0</alpha>
+</m_oCommonHeaderFillColor>
+<m_textPlacement>CENTER</m_textPlacement>
+</m_oTableColumnPorperties>
+<editableColumns>
+<editableColumn>
+<strColumnName>File_Name</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Creation_Time</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>ACK_Date</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>File_Status</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+</editableColumns>
+<fieldFormatList>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+</fieldFormatList>
+<valueFormatList>
+<valueFormat>
+<columnName>Creation_Time</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>ACK_Date</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>File_Name</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>File_Status</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>PlanNameWithAbbreviation</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+</valueFormatList>
+<dateFormat/>
+<timeFormat/>
+<m_bIsTextBold>false</m_bIsTextBold>
+<m_bIsTextItalics>false</m_bIsTextItalics>
+<m_bIsTextUnderline>false</m_bIsTextUnderline>
+<m_oTableTextColor>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>255</alpha>
+</m_oTableTextColor>
+<m_strTableTextPlacement>CENTER</m_strTableTextPlacement>
+</m_oProperties>
+<m_oDrillObjects/>
+<m_oDrillThroughObject>
+<m_bDrillThroughEnabled>true</m_bDrillThroughEnabled>
+<m_bDrillingEnabled>false</m_bDrillingEnabled>
+<m_oDrillHierarchiesPathArtifact/>
+<m_strDestination/>
+<m_strDestinationValue/>
+<m_isDefaultDrillAcrossAction>false</m_isDefaultDrillAcrossAction>
+<m_isRelativeUrl>false</m_isRelativeUrl>
+<m_oFieldParameterMapping>
+<entries/>
+</m_oFieldParameterMapping>
+<m_oDrillAcrossMapping/>
+</m_oDrillThroughObject>
+<m_bIsInternal>false</m_bIsInternal>
+<m_strMetadataFile>/beam/project/SPICE/view/EncounterACKwithNoREC/taskflow/EncounterACKwithNoREC/beamVizEncounterACKwithNoREC.xml</m_strMetadataFile>
+<m_oDynamicTimeAxisConfigObjects/>
+</ns0:businessView>

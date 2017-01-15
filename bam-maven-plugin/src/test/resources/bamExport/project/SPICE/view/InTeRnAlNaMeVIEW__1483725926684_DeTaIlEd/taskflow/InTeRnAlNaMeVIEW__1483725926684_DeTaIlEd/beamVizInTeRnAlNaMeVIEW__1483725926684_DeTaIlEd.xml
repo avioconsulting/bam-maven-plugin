@@ -1,0 +1,149 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller">
+<task-flow-definition id="ps_taskflowid">
+<display-name>Empty Task Flow</display-name>
+<template-reference>
+<document>/WEB-INF/oracle/beam/composer/exceptionHandling/btf-error-handler-template.xml</document>
+<id>btf-error-handler-template</id>
+</template-reference>
+<default-activity>setParametersMethodCall</default-activity>
+<data-control-scope>
+<isolated/>
+</data-control-scope>
+<input-parameter-definition id="__9">
+<name id="__10">inputParameter1</name>
+<value>#{pageFlowScope.visualizationEditor.inputParameterMap}</value>
+<class>java.util.HashMap</class>
+</input-parameter-definition>
+<input-parameter-definition id="__9x">
+<name id="__10x">dashboardId</name>
+<value>#{pageFlowScope.visualizationEditor.currentDashboardID}</value>
+<class>java.util.String</class>
+</input-parameter-definition>
+<input-parameter-definition id="__48">
+<name id="__49">isDashBoardView</name>
+<value>#{pageFlowScope.visualizationEditor.isDashBoardView}</value>
+<class>java.lang.Boolean</class>
+</input-parameter-definition>
+<managed-bean id="__4">
+<managed-bean-name id="__3">visualizationEditor</managed-bean-name>
+<managed-bean-class id="__2">oracle.beam.composer.visualization.view.util.BusinessViewBean</managed-bean-class>
+<managed-bean-scope id="__1">pageFlow</managed-bean-scope>
+</managed-bean>
+<managed-bean id="__51">
+<managed-bean-name id="__53">actionbuttonbean</managed-bean-name>
+<managed-bean-class id="__59">oracle.beam.composer.visualization.view.util.ActionButtonBean</managed-bean-class>
+<managed-bean-scope id="__57">pageFlow</managed-bean-scope>
+</managed-bean>
+<managed-bean id="__63">
+<managed-bean-name id="__67">customCallback</managed-bean-name>
+<managed-bean-class id="__69">oracle.beam.composer.visualization.editor.geomap.PointThemeCallback</managed-bean-class>
+<managed-bean-scope id="__68">pageFlow</managed-bean-scope>
+</managed-bean>
+<managed-bean id="__treeMapBean">
+<managed-bean-name id="treeMapBean">treeMapBean</managed-bean-name>
+<managed-bean-class>oracle.beam.composer.visualization.view.util.treemap.TreeMapBean</managed-bean-class>
+<managed-bean-scope>pageFlow</managed-bean-scope>
+</managed-bean>
+<initializer id="__11">#{pageFlowScope.visualizationEditor.initializer}</initializer>
+<finalizer>#{pageFlowScope.visualizationEditor.finalizer}</finalizer>
+<view id="taskflowview">
+<page>/beam/project/SPICE/view/InTeRnAlNaMeVIEW__1483725926684_DeTaIlEd/taskflow/InTeRnAlNaMeVIEW__1483725926684_DeTaIlEd/beamVizInTeRnAlNaMeVIEW__1483725926684_DeTaIlEd.jsff</page>
+</view>
+<task-flow-call id="drillThroughTaskFlowCall">
+<dynamic-task-flow-reference>#{pageFlowScope.visualizationEditor.targetTaskflowPath}</dynamic-task-flow-reference>
+<input-parameter id="__14">
+<name id="__13">inputParameter1</name>
+<value id="__12">#{pageFlowScope.visualizationEditor.parameterMap}</value>
+<pass-by-value/>
+</input-parameter>
+</task-flow-call>
+<task-flow-return id="return">
+<outcome id="__25">
+<name>back</name>
+</outcome>
+</task-flow-return>
+<task-flow-call id="drillDownTaskFlowCall">
+<dynamic-task-flow-reference>#{pageFlowScope.visualizationEditor.targetTaskflowPath}</dynamic-task-flow-reference>
+<input-parameter id="__42">
+<name id="__41">inputParameter1</name>
+<value id="__40">#{pageFlowScope.visualizationEditor.parameterMap}</value>
+<pass-by-value/>
+</input-parameter>
+</task-flow-call>
+<task-flow-call id="drillLevelTaskFlowCall">
+<dynamic-task-flow-reference>#{pageFlowScope.visualizationEditor.targetTaskflowPath}</dynamic-task-flow-reference>
+<input-parameter id="__52">
+<name id="__61">inputParameter1</name>
+<value id="__50">#{pageFlowScope.visualizationEditor.parameterMap}</value>
+<pass-by-value/>
+</input-parameter>
+</task-flow-call>
+<method-call id="setParametersMethodCall">
+<method>#{bindings.setParameters.execute}</method>
+<outcome>
+<fixed-outcome>setParameters</fixed-outcome>
+</outcome>
+</method-call>
+<control-flow-rule id="__19">
+<from-activity-id id="__20">taskflowview</from-activity-id>
+<control-flow-case id="__22">
+<from-outcome id="__23">callDrillThroughTaskflow</from-outcome>
+<to-activity-id id="__21">drillThroughTaskFlowCall</to-activity-id>
+</control-flow-case>
+<control-flow-case id="__26">
+<from-outcome id="__28">done</from-outcome>
+<to-activity-id id="__27">return</to-activity-id>
+</control-flow-case>
+<control-flow-case id="__16">
+<from-outcome id="__17">callDrillDownTaskflow</from-outcome>
+<to-activity-id id="__15">drillDownTaskFlowCall</to-activity-id>
+</control-flow-case>
+<control-flow-case id="__137">
+<from-outcome id="__119">callNextlLevelTaskflow</from-outcome>
+<to-activity-id id="__138">drillLevelTaskFlowCall</to-activity-id>
+</control-flow-case>
+<control-flow-case id="__146">
+<from-outcome id="__147">callNextLevelTaskflow</from-outcome>
+<to-activity-id id="__145">drillDownTaskFlowCall</to-activity-id>
+</control-flow-case>
+</control-flow-rule>
+<control-flow-rule id="__29">
+<from-activity-id id="__30">drillThroughTaskFlowCall</from-activity-id>
+<control-flow-case id="__31">
+<from-outcome id="__33">back</from-outcome>
+<to-activity-id id="__32">taskflowview</to-activity-id>
+</control-flow-case>
+</control-flow-rule>
+<control-flow-rule id="__18">
+<from-activity-id id="__24">drillDownTaskFlowCall</from-activity-id>
+<control-flow-case id="__35">
+<from-outcome id="__36">back</from-outcome>
+<to-activity-id id="__34">taskflowview</to-activity-id>
+</control-flow-case>
+<control-flow-case id="__37">
+<from-outcome id="__39">callNextlLevelTaskflow</from-outcome>
+<to-activity-id id="__38">drillLevelTaskFlowCall</to-activity-id>
+</control-flow-case>
+</control-flow-rule>
+<control-flow-rule id="__43">
+<from-activity-id id="__44">drillLevelTaskFlowCall</from-activity-id>
+<control-flow-case id="__46">
+<from-outcome id="__47">callNextLevelTaskflow</from-outcome>
+<to-activity-id id="__45">drillDownTaskFlowCall</to-activity-id>
+</control-flow-case>
+<control-flow-case id="__55">
+<from-outcome id="__56">back</from-outcome>
+<to-activity-id id="__54">taskflowview</to-activity-id>
+</control-flow-case>
+</control-flow-rule>
+<control-flow-rule id="__58">
+<from-activity-id>setParametersMethodCall</from-activity-id>
+<control-flow-case id="__62">
+<from-outcome>setParameters</from-outcome>
+<to-activity-id>taskflowview</to-activity-id>
+</control-flow-case>
+</control-flow-rule>
+<use-page-fragments/>
+</task-flow-definition>
+</adfc-config>

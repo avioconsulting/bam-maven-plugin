@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<mds:customization version="12.2.1_20161008.1648" xmlns:mds="http://xmlns.oracle.com/mds" motype_local_name="pageDefinition" motype_nsuri="http://xmlns.oracle.com/adfm/uimodel">
+<mds:insert parent="beamVizEncounter_File_VolumePageDef" position="last">
+<ProjectNameBusinessViewName xmlns="http://www.beam.com/datacontrol/personalization">
+<ProjectName value="SPICE"/>
+<BusinessViewName value="Encounter_File_Volume"/>
+</ProjectNameBusinessViewName>
+</mds:insert>
+<mds:insert parent="beamVizEncounter_File_VolumePageDef" position="last">
+<executables xmlns="http://xmlns.oracle.com/adfm/uimodel"/>
+</mds:insert>
+<mds:insert parent="beamVizEncounter_File_VolumePageDef" position="last">
+<bindings xmlns="http://xmlns.oracle.com/adfm/uimodel"/>
+</mds:insert>
+<mds:insert parent="beamVizEncounter_File_VolumePageDef(xmlns(mds_ns1=http://xmlns.oracle.com/adfm/uimodel))/mds_ns1:executables" position="last">
+<iterator Binds="root" RangeSize="25" DataControl="SPICE_Encounter_File_Volume" id="SPICE_Encounter_File_VolumeIterator" xmlns="http://xmlns.oracle.com/adfm/uimodel"/>
+</mds:insert>
+<mds:insert parent="beamVizEncounter_File_VolumePageDef(xmlns(mds_ns1=http://xmlns.oracle.com/adfm/uimodel))/mds_ns1:executables" position="last">
+<accessorIterator MasterBinding="SPICE_Encounter_File_VolumeIterator" Binds="Query" RangeSize="-1" DataControl="SPICE_Encounter_File_Volume" BeanClass="oracle.beam.datacontrol.definition.SPICE_Encounter_File_Volume.Query" id="QueryIterator" xmlns="http://xmlns.oracle.com/adfm/uimodel"/>
+</mds:insert>
+<mds:insert parent="beamVizEncounter_File_VolumePageDef(xmlns(mds_ns1=http://xmlns.oracle.com/adfm/uimodel))/mds_ns1:bindings" position="last">
+<graph IterBinding="QueryIterator" id="Query" xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST" ChangeEventPolicy="none">
+<graphDataMap convert="false" leafOnly="true" caching="false">
+<groups>
+<item value="YEAR_Creation_Time" itemLabel="YEAR_"/>
+<item value="MONTH_Creation_Time" itemLabel="MONTH_"/>
+</groups>
+<series>
+<data>
+<item value="SUMACK_Received_Counter" label="ACK Files Received"/>
+<item value="SUMINS_Received_Counter" label="INS Files Received"/>
+<item value="SUMREC_Received_Counter" label="REC Files Received"/>
+</data>
+<item value="PlanNameWithAbbreviation"/>
+</series>
+</graphDataMap>
+</graph>
+</mds:insert>
+</mds:customization>

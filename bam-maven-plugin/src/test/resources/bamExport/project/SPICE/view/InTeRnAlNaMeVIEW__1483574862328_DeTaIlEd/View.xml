@@ -1,0 +1,563 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ns0:businessView xmlns:ns0="http://xmlns.oracle.com/bam/bam12">
+<name>InTeRnAlNaMeVIEW__1483574862328_DeTaIlEd</name>
+<id>/project/SPICE/view/InTeRnAlNaMeVIEW__1483574862328_DeTaIlEd</id>
+<displayName>BeamVisualization</displayName>
+<internal>true</internal>
+<useHive>false</useHive>
+<systemManaged>false</systemManaged>
+<createdDate>2017-01-14T18:34:28.09-06:00</createdDate>
+<modifiedDate>2017-01-14T18:34:28.09-06:00</modifiedDate>
+<createdBy>weblogic</createdBy>
+<modifiedBy>weblogic</modifiedBy>
+<status>BROKEN</status>
+<addDefaultPermissions>true</addDefaultPermissions>
+<m_strBusinessViewName>BeamVisualization</m_strBusinessViewName>
+<m_strBusinessViewsProjectName>SPICE</m_strBusinessViewsProjectName>
+<m_oBusinessViewType>TABLE</m_oBusinessViewType>
+<m_oBusinessViewSubtype>
+<m_oBusinessViewType>TABLE</m_oBusinessViewType>
+<m_strViewSubType>replace</m_strViewSubType>
+</m_oBusinessViewSubtype>
+<m_oBusinessViewLayout>ALL</m_oBusinessViewLayout>
+<m_oBusinessQuery>
+<itemType>BusinessQuery</itemType>
+<projectName>SPICE</projectName>
+<itemName>InTeRnAlNaMeQuery__1483574862328_DeTaIlEd</itemName>
+</m_oBusinessQuery>
+<viewTitle>
+<titleValue>
+<titleType>TITLE</titleType>
+<titleValue>InTeRnAlNaMeVIEW__1483574862328_DeTaIlEd</titleValue>
+</titleValue>
+<font>
+<size>11</size>
+<color>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>255</alpha>
+</color>
+<bold>true</bold>
+<italic>false</italic>
+<underline>false</underline>
+<name>Tahoma</name>
+</font>
+<placement>LEFT</placement>
+<rendered>false</rendered>
+</viewTitle>
+<subTitle/>
+<bIsActive>false</bIsActive>
+<bIsMakeActiveRuntimeModificationAllowed>false</bIsMakeActiveRuntimeModificationAllowed>
+<oActionButtonDataList/>
+<bNeedsRefresh>false</bNeedsRefresh>
+<bNeedsRefresh2>false</bNeedsRefresh2>
+<bHasDirtyChanges>false</bHasDirtyChanges>
+<m_oProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns0:tableBusinessViewPropertiesImpl">
+<m_oPropertiesMap>
+<entries>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">rowSelection</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">single</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">horizontalGridVisible</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">false</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">columnSelection</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">single</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">color</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default></value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">displayRow</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(first)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">contentDelivery</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(whenAvailable)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">emptyText</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string"/>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">font-weight</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(normal)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">font-size</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">11</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">columnResizing</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">enabled</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">disableColumnReordering</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">false</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">rowBandingInterval</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">1</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">columnBandingInterval</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">background-color</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(transparent)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">verticalGridVisible</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">false</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">columnStretching</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">none</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">font-family</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">Tahoma</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">border-width</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(medium)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">border-style</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(none)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">text-align</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default></value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">border</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">padding</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">margin</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">fetchSize</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">text-decoration</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(none)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">vertical-align</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(baseline)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">border-color</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default></value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">shortDescription</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">Table Description</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">font-style</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(normal)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">rendered</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">&lt;default>(true)</value>
+</entry>
+<entry>
+<key xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">first</key>
+<value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">0</value>
+</entry>
+</entries>
+</m_oPropertiesMap>
+<m_bBorderTransparent>true</m_bBorderTransparent>
+<m_oBorderColor>
+<red>255</red>
+<green>255</green>
+<blue>255</blue>
+<alpha>255</alpha>
+</m_oBorderColor>
+<m_bFillTransparent>true</m_bFillTransparent>
+<m_oFillColor>
+<red>255</red>
+<green>255</green>
+<blue>255</blue>
+<alpha>255</alpha>
+</m_oFillColor>
+<m_strHeight>auto</m_strHeight>
+<m_strWidth>100%</m_strWidth>
+<m_oVisibleColumns>
+<entries/>
+</m_oVisibleColumns>
+<m_oColumnHeaderColor>
+<entries/>
+</m_oColumnHeaderColor>
+<m_oColumnHeaderText>
+<entries/>
+</m_oColumnHeaderText>
+<m_oColumnColor>
+<entries/>
+</m_oColumnColor>
+<m_oTableColumnPorperties>
+<m_strFont>Tahoma</m_strFont>
+<m_iSize>11</m_iSize>
+<m_bBold>true</m_bBold>
+<m_iItalics>false</m_iItalics>
+<m_bUnderline>false</m_bUnderline>
+<m_showHeader>true</m_showHeader>
+<m_bApplyCommonHeaderFillColor>false</m_bApplyCommonHeaderFillColor>
+<m_oColor>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>255</alpha>
+</m_oColor>
+<m_oPlacement>CENTER</m_oPlacement>
+<m_textFont>Tahoma</m_textFont>
+<m_textSize>11</m_textSize>
+<m_textBold>false</m_textBold>
+<m_textItalics>false</m_textItalics>
+<m_textUnderline>false</m_textUnderline>
+<m_textColor>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>255</alpha>
+</m_textColor>
+<m_oCommonHeaderFillColor>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>0</alpha>
+</m_oCommonHeaderFillColor>
+<m_textPlacement>CENTER</m_textPlacement>
+</m_oTableColumnPorperties>
+<editableColumns>
+<editableColumn>
+<strColumnName>Claims_Count</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Creation_Time</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>File_Error</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>File_Name</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>File_Status</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Plan_Name</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Rejected_Claims_Count</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Start_Time</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Error_Threshold</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Last_Creation_Date</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Trading_Partner</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>Plan_Name_Full</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>ACK_Date</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>INS_Date</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+<editableColumn>
+<strColumnName>REC_Date</strColumnName>
+<bEditable>false</bEditable>
+</editableColumn>
+</editableColumns>
+<fieldFormatList>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:numberFormat">
+<type>None</type>
+<currencySymbol/>
+<maxIntegerDigits>2147483647</maxIntegerDigits>
+<minIntegerDigits>0</minIntegerDigits>
+<maxFractionDigits>2147483647</maxFractionDigits>
+<fractionDigits>2</fractionDigits>
+<minFractionDigits>0</minFractionDigits>
+<groupingUsed>true</groupingUsed>
+<negativeNumberFormat>NEG_NUMFMT_BY_LOCALE</negativeNumberFormat>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:numberFormat">
+<type>None</type>
+<currencySymbol/>
+<maxIntegerDigits>2147483647</maxIntegerDigits>
+<minIntegerDigits>0</minIntegerDigits>
+<maxFractionDigits>2147483647</maxFractionDigits>
+<fractionDigits>2</fractionDigits>
+<minFractionDigits>0</minFractionDigits>
+<groupingUsed>true</groupingUsed>
+<negativeNumberFormat>NEG_NUMFMT_BY_LOCALE</negativeNumberFormat>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:numberFormat">
+<type>None</type>
+<currencySymbol/>
+<maxIntegerDigits>2147483647</maxIntegerDigits>
+<minIntegerDigits>0</minIntegerDigits>
+<maxFractionDigits>2147483647</maxFractionDigits>
+<fractionDigits>2</fractionDigits>
+<minFractionDigits>0</minFractionDigits>
+<groupingUsed>true</groupingUsed>
+<negativeNumberFormat>NEG_NUMFMT_BY_LOCALE</negativeNumberFormat>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:varcharFormat">
+<type>None</type>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+<fieldFormat xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</fieldFormat>
+</fieldFormatList>
+<valueFormatList>
+<valueFormat>
+<columnName>ACK_Date</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>REC_Date</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>File_Name</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Last_Creation_Date</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>INS_Date</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Error_Threshold</columnName>
+<value xsi:type="ns0:numberFormat">
+<type>None</type>
+<currencySymbol/>
+<maxIntegerDigits>2147483647</maxIntegerDigits>
+<minIntegerDigits>0</minIntegerDigits>
+<maxFractionDigits>2147483647</maxFractionDigits>
+<fractionDigits>2</fractionDigits>
+<minFractionDigits>0</minFractionDigits>
+<groupingUsed>true</groupingUsed>
+<negativeNumberFormat>NEG_NUMFMT_BY_LOCALE</negativeNumberFormat>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Claims_Count</columnName>
+<value xsi:type="ns0:numberFormat">
+<type>None</type>
+<currencySymbol/>
+<maxIntegerDigits>2147483647</maxIntegerDigits>
+<minIntegerDigits>0</minIntegerDigits>
+<maxFractionDigits>2147483647</maxFractionDigits>
+<fractionDigits>2</fractionDigits>
+<minFractionDigits>0</minFractionDigits>
+<groupingUsed>true</groupingUsed>
+<negativeNumberFormat>NEG_NUMFMT_BY_LOCALE</negativeNumberFormat>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Creation_Time</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>DATAOBJECT_CREATED</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Plan_Name</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Rejected_Claims_Count</columnName>
+<value xsi:type="ns0:numberFormat">
+<type>None</type>
+<currencySymbol/>
+<maxIntegerDigits>2147483647</maxIntegerDigits>
+<minIntegerDigits>0</minIntegerDigits>
+<maxFractionDigits>2147483647</maxFractionDigits>
+<fractionDigits>2</fractionDigits>
+<minFractionDigits>0</minFractionDigits>
+<groupingUsed>true</groupingUsed>
+<negativeNumberFormat>NEG_NUMFMT_BY_LOCALE</negativeNumberFormat>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>File_Status</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Start_Time</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>DATAOBJECT_MODIFIED</columnName>
+<value xsi:type="ns0:dateTimeFormat">
+<strType>None</strType>
+<strDatePattern>yy/MM/dd</strDatePattern>
+<strTimePattern>H:mm:ss:SSS</strTimePattern>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Plan_Name_Full</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>File_Error</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+<valueFormat>
+<columnName>Trading_Partner</columnName>
+<value xsi:type="ns0:varcharFormat">
+<type>None</type>
+</value>
+</valueFormat>
+</valueFormatList>
+<dateFormat/>
+<timeFormat/>
+<m_bIsTextBold>false</m_bIsTextBold>
+<m_bIsTextItalics>false</m_bIsTextItalics>
+<m_bIsTextUnderline>false</m_bIsTextUnderline>
+<m_oTableTextColor>
+<red>0</red>
+<green>0</green>
+<blue>0</blue>
+<alpha>255</alpha>
+</m_oTableTextColor>
+<m_strTableTextPlacement>CENTER</m_strTableTextPlacement>
+</m_oProperties>
+<m_oDrillObjects/>
+<m_bIsInternal>true</m_bIsInternal>
+<m_strMetadataFile>/beam/project/SPICE/view/InTeRnAlNaMeVIEW__1483574862328_DeTaIlEd/taskflow/InTeRnAlNaMeVIEW__1483574862328_DeTaIlEd/beamVizInTeRnAlNaMeVIEW__1483574862328_DeTaIlEd.xml</m_strMetadataFile>
+<m_oDynamicTimeAxisConfigObjects/>
+</ns0:businessView>

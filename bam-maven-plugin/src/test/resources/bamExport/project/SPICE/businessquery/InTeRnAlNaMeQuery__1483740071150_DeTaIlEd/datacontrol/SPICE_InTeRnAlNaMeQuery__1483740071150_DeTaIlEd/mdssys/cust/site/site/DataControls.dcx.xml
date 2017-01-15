@@ -1,0 +1,474 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<mds:customization version="12.2.1_20161008.1648" xmlns:mds="http://xmlns.oracle.com/mds" motype_local_name="DataControlConfigs" motype_nsuri="http://xmlns.oracle.com/adfm/configuration">
+<mds:insert parent="(xmlns(mds_ns1=http://xmlns.oracle.com/adfm/configuration))/mds_ns1:DataControlConfigs" position="last">
+<AdapterDataControl id="SPICE_InTeRnAlNaMeQuery__1483740071150_DeTaIlEd" FactoryClass="oracle.beam.datacontrol.adapter.BeamDataControlFactoryImpl" ImplDef="oracle.beam.datacontrol.adapter.BeamDataControlDefinition" SupportsTransactions="false" SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false" SupportsFindMode="false" SupportsUpdates="false" Definition="oracle.beam.datacontrol.definition.SPICE_InTeRnAlNaMeQuery__1483740071150_DeTaIlEd" BeanClass="oracle.beam.datacontrol.definition.SPICE_InTeRnAlNaMeQuery__1483740071150_DeTaIlEd" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+<Source>
+<BeamDataControl xmlns="http://xmlns.oracle.com/bam/datacontrol" connection="BAMServerConnection1">
+<Modifiers>
+<Modifier version="1.0" type="FLAT" dataset="Encounter_LDO" queryName="InTeRnAlNaMeQuery__1483740071150_DeTaIlEd" subjectArea="SPICE" queryId="/project/SPICE/businessquery/InTeRnAlNaMeQuery__1483740071150_DeTaIlEd">
+<FieldRefs>
+<DatasetField fieldRefID="0" datasetField="BEAM_ID" datasetFieldDisplayName="BEAM_ID" order="0" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="1" datasetField="DATAOBJECT_CREATED" datasetFieldDisplayName="DATAOBJECT_CREATED" order="1" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="2" datasetField="DATAOBJECT_MODIFIED" datasetFieldDisplayName="DATAOBJECT_MODIFIED" order="2" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="3" datasetField="Claims_Count" datasetFieldDisplayName="Claims Count" order="3" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="4" datasetField="Creation_Time" datasetFieldDisplayName="Creation Time" order="4" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="5" datasetField="File_Error" datasetFieldDisplayName="File Error" order="5" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="6" datasetField="File_Name" datasetFieldDisplayName="File Name" order="6" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="7" datasetField="File_Status" datasetFieldDisplayName="File Status" order="7" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="8" datasetField="Plan_Name" datasetFieldDisplayName="Plan Name" order="8" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="9" datasetField="Rejected_Claims_Count" datasetFieldDisplayName="Rejected Claims Count" order="9" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="10" datasetField="Start_Time" datasetFieldDisplayName="Start Time" order="10" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="11" datasetField="Error_Threshold" datasetFieldDisplayName="Error Threshold" order="11" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="12" datasetField="Last_Creation_Date" datasetFieldDisplayName="Last Creation Date" order="12" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="13" datasetField="Trading_Partner" datasetFieldDisplayName="Trading Partner" order="13" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="14" datasetField="Plan_Name_Full" datasetFieldDisplayName="Plan Name Full" order="14" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="15" datasetField="ACK_Date" datasetFieldDisplayName="ACK Date" order="15" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="16" datasetField="INS_Date" datasetFieldDisplayName="INS Date" order="16" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="17" datasetField="REC_Date" datasetFieldDisplayName="REC Date" order="17" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="0'" fieldRefID="18'" datasetField="Minutes_To_Create_File" datasetFieldDisplayName="Minutes_To_Create_File" order="18" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="1'" fieldRefID="19'" datasetField="Days_To_ACK_File" datasetFieldDisplayName="Days_To_ACK_File" order="19" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="2'" fieldRefID="20'" datasetField="Days_To_REC_File" datasetFieldDisplayName="Days_To_REC_File" order="20" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="3'" fieldRefID="21'" datasetField="Days_To_INS_File" datasetFieldDisplayName="Days_To_INS_File" order="21" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="4'" fieldRefID="22'" datasetField="ACK_Received_Counter" datasetFieldDisplayName="ACK_Received_Counter" order="22" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="5'" fieldRefID="23'" datasetField="ACK_Count" datasetFieldDisplayName="ACK_Count" order="23" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="6'" fieldRefID="24'" datasetField="REC_Received_Counter" datasetFieldDisplayName="REC_Received_Counter" order="24" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="7'" fieldRefID="25'" datasetField="REC_Count" datasetFieldDisplayName="REC_Count" order="25" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="8'" fieldRefID="26'" datasetField="INS_Received_Counter" datasetFieldDisplayName="INS_Received_Counter" order="26" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="9'" fieldRefID="27'" datasetField="INS_Count" datasetFieldDisplayName="INS_Count" order="27" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="10'" fieldRefID="28'" datasetField="File_Count" datasetFieldDisplayName="File_Count" order="28" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="11'" fieldRefID="29'" datasetField="PlanNameWithAbbreviation" datasetFieldDisplayName="PlanNameWithAbbreviation" order="29" dataType="STRING" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="12'" fieldRefID="30'" datasetField="ACK_Not_Received_Counter" datasetFieldDisplayName="ACK_Not_Received_Counter" order="30" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="13'" fieldRefID="31'" datasetField="ACK_Not_Received_Count" datasetFieldDisplayName="ACK_Not_Received_Count" order="31" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="14'" fieldRefID="32'" datasetField="REC_Not_Received_Counter" datasetFieldDisplayName="REC_Not_Received_Counter" order="32" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="15'" fieldRefID="33'" datasetField="REC_Not_Received_Count" datasetFieldDisplayName="REC_Not_Received_Count" order="33" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="16'" fieldRefID="34'" datasetField="INS_Not_Received_Counter" datasetFieldDisplayName="INS_Not_Received_Counter" order="34" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="17'" fieldRefID="35'" datasetField="INS_Not_Received_Count" datasetFieldDisplayName="INS_Not_Received_Count" order="35" dataType="FLOAT" isGroupLevel="false"/>
+</FieldRefs>
+<CalculatedFields>
+<CalculatedField CalculatedFieldID="0">
+<CalculatedFieldName>Minutes_To_Create_File</CalculatedFieldName>
+<CalcExpression>IF({Creation_Time}!=NULL)THEN(DATEDIFF(SQL_TSI_MINUTE,{Start_Time},{Creation_Time}))ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">Creation_Time</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<Function>
+<FunctionName>DATEDIFF</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">SQL_TSI_MINUTE</Value>
+<Value bParameter="false">Start_Time</Value>
+<Value bParameter="false">Creation_Time</Value>
+</FunctionArguments>
+</Function>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="1">
+<CalculatedFieldName>Days_To_ACK_File</CalculatedFieldName>
+<CalcExpression>IF({ACK_Date}!=NULL)THEN(DATEDIFF(SQL_TSI_DAY,{Start_Time},{ACK_Date}))ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">ACK_Date</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<Function>
+<FunctionName>DATEDIFF</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">SQL_TSI_DAY</Value>
+<Value bParameter="false">Start_Time</Value>
+<Value bParameter="false">ACK_Date</Value>
+</FunctionArguments>
+</Function>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="2">
+<CalculatedFieldName>Days_To_REC_File</CalculatedFieldName>
+<CalcExpression>IF({REC_Date}!=NULL)THEN(DATEDIFF(SQL_TSI_DAY,{Start_Time},{REC_Date}))ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">REC_Date</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<Function>
+<FunctionName>DATEDIFF</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">SQL_TSI_DAY</Value>
+<Value bParameter="false">Start_Time</Value>
+<Value bParameter="false">REC_Date</Value>
+</FunctionArguments>
+</Function>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="3">
+<CalculatedFieldName>Days_To_INS_File</CalculatedFieldName>
+<CalcExpression>IF({INS_Date}!=NULL)THEN(DATEDIFF(SQL_TSI_DAY,{Start_Time},{INS_Date}))ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">INS_Date</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<Function>
+<FunctionName>DATEDIFF</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">SQL_TSI_DAY</Value>
+<Value bParameter="false">Start_Time</Value>
+<Value bParameter="false">INS_Date</Value>
+</FunctionArguments>
+</Function>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="4">
+<CalculatedFieldName>ACK_Received_Counter</CalculatedFieldName>
+<CalcExpression>IF(({ACK_Date}!=NULL)&amp;&amp;({REC_Date}==NULL))THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<LogicalExpr>
+<Value bParameter="false">ACK_Date</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<LogicalOpr>&amp;&amp;</LogicalOpr>
+<LogicalExpr>
+<Value bParameter="false">REC_Date</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="5">
+<CalculatedFieldName>ACK_Count</CalculatedFieldName>
+<CalcExpression>SUM({ACK_Received_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">ACK_Received_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="6">
+<CalculatedFieldName>REC_Received_Counter</CalculatedFieldName>
+<CalcExpression>IF(({REC_Date}!=NULL)&amp;&amp;({INS_Date}==NULL))THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<LogicalExpr>
+<Value bParameter="false">REC_Date</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<LogicalOpr>&amp;&amp;</LogicalOpr>
+<LogicalExpr>
+<Value bParameter="false">INS_Date</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="7">
+<CalculatedFieldName>REC_Count</CalculatedFieldName>
+<CalcExpression>SUM({REC_Received_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">REC_Received_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="8">
+<CalculatedFieldName>INS_Received_Counter</CalculatedFieldName>
+<CalcExpression>IF({INS_Date}!=NULL)THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">INS_Date</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="9">
+<CalculatedFieldName>INS_Count</CalculatedFieldName>
+<CalcExpression>SUM({INS_Received_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">INS_Received_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="10">
+<CalculatedFieldName>File_Count</CalculatedFieldName>
+<CalcExpression>COUNT(BEAM_ID)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>COUNT</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">BEAM_ID</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="11">
+<CalculatedFieldName>PlanNameWithAbbreviation</CalculatedFieldName>
+<CalcExpression>IF({Plan_Name_Full}!=NULL)THEN(CONCAT({Plan_Name_Full},"(",{Plan_Name},")"))ELSE({Plan_Name})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">Plan_Name_Full</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<Function>
+<FunctionName>CONCAT</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">Plan_Name_Full</Value>
+<Value bParameter="false">"("</Value>
+<Value bParameter="false">Plan_Name</Value>
+<Value bParameter="false">")"</Value>
+</FunctionArguments>
+</Function>
+<Value bParameter="false">Plan_Name</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="12">
+<CalculatedFieldName>ACK_Not_Received_Counter</CalculatedFieldName>
+<CalcExpression>IF({ACK_Date}==NULL)THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">ACK_Date</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="13">
+<CalculatedFieldName>ACK_Not_Received_Count</CalculatedFieldName>
+<CalcExpression>SUM({ACK_Not_Received_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">ACK_Not_Received_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="14">
+<CalculatedFieldName>REC_Not_Received_Counter</CalculatedFieldName>
+<CalcExpression>IF(({REC_Date}==NULL)&amp;&amp;({ACK_Date}!=NULL))THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<LogicalExpr>
+<Value bParameter="false">REC_Date</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<LogicalOpr>&amp;&amp;</LogicalOpr>
+<LogicalExpr>
+<Value bParameter="false">ACK_Date</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="15">
+<CalculatedFieldName>REC_Not_Received_Count</CalculatedFieldName>
+<CalcExpression>SUM({REC_Not_Received_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">REC_Not_Received_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="16">
+<CalculatedFieldName>INS_Not_Received_Counter</CalculatedFieldName>
+<CalcExpression>IF(({INS_Date}==NULL)&amp;&amp;({REC_Date}!=NULL))THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<LogicalExpr>
+<Value bParameter="false">INS_Date</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<LogicalOpr>&amp;&amp;</LogicalOpr>
+<LogicalExpr>
+<Value bParameter="false">REC_Date</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="17">
+<CalculatedFieldName>INS_Not_Received_Count</CalculatedFieldName>
+<CalcExpression>SUM({INS_Not_Received_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">INS_Not_Received_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+</CalculatedFields>
+<RecordFields>
+<RecordField fieldID="0" order="0" fieldRefID="0" datasetField="BEAM_ID" dataType="INTEGER" datasetFieldAlias="BEAM_ID"/>
+<RecordField fieldID="1" order="1" fieldRefID="1" datasetField="DATAOBJECT_CREATED" dataType="DATETIME" datasetFieldAlias="DATAOBJECT_CREATED"/>
+<RecordField fieldID="2" order="2" fieldRefID="2" datasetField="DATAOBJECT_MODIFIED" dataType="DATETIME" datasetFieldAlias="DATAOBJECT_MODIFIED"/>
+<RecordField fieldID="3" order="3" fieldRefID="3" datasetField="Claims_Count" dataType="INTEGER" datasetFieldAlias="Claims Count"/>
+<RecordField fieldID="4" order="4" fieldRefID="4" datasetField="Creation_Time" dataType="DATETIME" datasetFieldAlias="Creation Time"/>
+<RecordField fieldID="5" order="5" fieldRefID="5" datasetField="File_Error" dataType="STRING" datasetFieldAlias="File Error"/>
+<RecordField fieldID="6" order="6" fieldRefID="6" datasetField="File_Name" dataType="STRING" datasetFieldAlias="File Name"/>
+<RecordField fieldID="7" order="7" fieldRefID="7" datasetField="File_Status" dataType="STRING" datasetFieldAlias="File Status"/>
+<RecordField fieldID="8" order="8" fieldRefID="8" datasetField="Plan_Name" dataType="STRING" datasetFieldAlias="Plan Name"/>
+<RecordField fieldID="9" order="9" fieldRefID="9" datasetField="Rejected_Claims_Count" dataType="INTEGER" datasetFieldAlias="Rejected Claims Count"/>
+<RecordField fieldID="10" order="10" fieldRefID="10" datasetField="Start_Time" dataType="DATETIME" datasetFieldAlias="Start Time"/>
+<RecordField fieldID="11" order="11" fieldRefID="11" datasetField="Error_Threshold" dataType="INTEGER" datasetFieldAlias="Error Threshold"/>
+<RecordField fieldID="12" order="12" fieldRefID="12" datasetField="Last_Creation_Date" dataType="DATETIME" datasetFieldAlias="Last Creation Date"/>
+<RecordField fieldID="13" order="13" fieldRefID="13" datasetField="Trading_Partner" dataType="STRING" datasetFieldAlias="Trading Partner"/>
+<RecordField fieldID="14" order="14" fieldRefID="14" datasetField="Plan_Name_Full" dataType="STRING" datasetFieldAlias="Plan Name Full"/>
+<RecordField fieldID="15" order="15" fieldRefID="15" datasetField="ACK_Date" dataType="DATETIME" datasetFieldAlias="ACK Date"/>
+<RecordField fieldID="16" order="16" fieldRefID="16" datasetField="INS_Date" dataType="DATETIME" datasetFieldAlias="INS Date"/>
+<RecordField fieldID="17" order="17" fieldRefID="17" datasetField="REC_Date" dataType="DATETIME" datasetFieldAlias="REC Date"/>
+</RecordFields>
+<Groups collapsed="true"/>
+<Filter>
+<Branch name="Root" type="ALL">
+<Branch type="ALL">
+<Entry type="LIKE">
+<Node type="COLUMN">Creation_Time</Node>
+<Node type="PARAMETER" isDateTimeLike="true">InTeRnAlNaMeQuery__1483740071150_DeTaIlEd_Creation_Time</Node>
+</Entry>
+<Entry type="EQ">
+<Node type="COLUMN">PlanNameWithAbbreviation</Node>
+<Node type="PARAMETER" isDateTimeLike="false">InTeRnAlNaMeQuery__1483740071150_DeTaIlEd_PlanNameWithAbbreviation</Node>
+</Entry>
+<Branch name="internalFilter" type="ALL"/>
+</Branch>
+<Branch name="runtimeFilter" type="ALL"/>
+</Branch>
+</Filter>
+<GroupFilter>
+<Branch name="groupFilter" type="ALL"/>
+</GroupFilter>
+<Sorts/>
+<Parameters>
+<Parameter name="InTeRnAlNaMeQuery__1483740071150_DeTaIlEd_Creation_Time" dataType="DATETIME">
+<Value>
+<Item special="false"/>
+</Value>
+<DefaultValue>
+<Item special="true">ALL</Item>
+</DefaultValue>
+<DisplayName>InTeRnAlNaMeQuery__1483740071150_DeTaIlEd_Creation_Time</DisplayName>
+<Description/>
+</Parameter>
+<Parameter name="InTeRnAlNaMeQuery__1483740071150_DeTaIlEd_PlanNameWithAbbreviation" dataType="VARCHAR">
+<Value>
+<Item special="false"/>
+</Value>
+<DefaultValue>
+<Item special="true">ALL</Item>
+</DefaultValue>
+<DisplayName>InTeRnAlNaMeQuery__1483740071150_DeTaIlEd_PlanNameWithAbbreviation</DisplayName>
+<Description/>
+</Parameter>
+</Parameters>
+</Modifier>
+<InsertNewRecordPosition>INSERT_AFTER</InsertNewRecordPosition>
+<AuthenticationType>USE_BAM_CONNECTION_CREDENTIAL</AuthenticationType>
+</Modifiers>
+</BeamDataControl>
+</Source>
+</AdapterDataControl>
+</mds:insert>
+<mds:modify element="(xmlns(mds_ns1=http://xmlns.oracle.com/adfm/configuration))/mds_ns1:DataControlConfigs">
+<mds:attribute name="Package" value="beam.project.SPICE.businessquery.InTeRnAlNaMeQuery__1483740071150_DeTaIlEd.datacontrol.SPICE_InTeRnAlNaMeQuery__1483740071150_DeTaIlEd"/>
+<mds:attribute name="id" value="DataControls"/>
+</mds:modify>
+</mds:customization>

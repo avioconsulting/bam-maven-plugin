@@ -1,0 +1,398 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<mds:customization version="12.2.1_20161008.1648" xmlns:mds="http://xmlns.oracle.com/mds" motype_local_name="DataControlConfigs" motype_nsuri="http://xmlns.oracle.com/adfm/configuration">
+<mds:insert parent="(xmlns(mds_ns1=http://xmlns.oracle.com/adfm/configuration))/mds_ns1:DataControlConfigs" position="last">
+<AdapterDataControl id="SPICE_Eligibility_File_Status" FactoryClass="oracle.beam.datacontrol.adapter.BeamDataControlFactoryImpl" ImplDef="oracle.beam.datacontrol.adapter.BeamDataControlDefinition" SupportsTransactions="false" SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false" SupportsFindMode="false" SupportsUpdates="false" Definition="oracle.beam.datacontrol.definition.SPICE_Eligibility_File_Status" BeanClass="oracle.beam.datacontrol.definition.SPICE_Eligibility_File_Status" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+<Source>
+<BeamDataControl xmlns="http://xmlns.oracle.com/bam/datacontrol" connection="BAMServerConnection1">
+<Modifiers>
+<Modifier version="1.0" type="GROUP" dataset="Eligibility_LDO" queryName="Eligibility_File_Status" subjectArea="SPICE" queryId="/project/SPICE/businessquery/Eligibility_File_Status">
+<FieldRefs>
+<DatasetField fieldRefID="0" datasetField="BEAM_ID" datasetFieldDisplayName="BEAM_ID" order="0" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="1" datasetField="DATAOBJECT_CREATED" datasetFieldDisplayName="DATAOBJECT_CREATED" order="1" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="2" datasetField="DATAOBJECT_MODIFIED" datasetFieldDisplayName="DATAOBJECT_MODIFIED" order="2" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="3" datasetField="File_Error" datasetFieldDisplayName="File Error" order="3" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="4" datasetField="File_Name" datasetFieldDisplayName="File Name" order="4" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="5" datasetField="Ignore_Thresholds" datasetFieldDisplayName="Ignore Thresholds" order="5" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="6" datasetField="Load_Date" datasetFieldDisplayName="Load Date" order="6" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="7" datasetField="Load_Status" datasetFieldDisplayName="Load Status" order="7" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="8" datasetField="Member_Count" datasetFieldDisplayName="Member Count" order="8" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="9" datasetField="Plan_Name" datasetFieldDisplayName="Plan Name" order="9" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="10" datasetField="Reception_Date" datasetFieldDisplayName="Reception_Date" order="10" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="11" datasetField="Records_Count" datasetFieldDisplayName="Records Count" order="11" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="12" datasetField="Records_Failed_Count" datasetFieldDisplayName="Records Failed Count" order="12" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="13" datasetField="Records_Ignored_Count" datasetFieldDisplayName="Records Ignored Count" order="13" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="14" datasetField="Resubmission_Date" datasetFieldDisplayName="Resubmission Date" order="14" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="15" datasetField="Threshold_Value" datasetFieldDisplayName="Threshold Value" order="15" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="16" datasetField="Valid_File" datasetFieldDisplayName="Valid File" order="16" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="17" datasetField="Last_Creation_Date" datasetFieldDisplayName="Last_Creation_Date" order="17" dataType="DATETIME" isGroupLevel="false"/>
+<DatasetField fieldRefID="18" datasetField="Previous_Records_Count" datasetFieldDisplayName="Previous Records Count" order="18" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField fieldRefID="19" datasetField="Trading_Partner" datasetFieldDisplayName="Trading Partner" order="19" dataType="STRING" isGroupLevel="false"/>
+<DatasetField fieldRefID="20" datasetField="Plan_Name_Full" datasetFieldDisplayName="Plan Name Full" order="20" dataType="STRING" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="0'" fieldRefID="21'" datasetField="Records_Successful_Percent" datasetFieldDisplayName="Records_Successful_Percent" order="21" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="1'" fieldRefID="22'" datasetField="Records_Failed_Percent" datasetFieldDisplayName="Records_Failed_Percent" order="22" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="2'" fieldRefID="23'" datasetField="Records_Successful_Count" datasetFieldDisplayName="Records_Successful_Count" order="23" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="3'" fieldRefID="24'" datasetField="Successful_File_Counter" datasetFieldDisplayName="Successful_File_Counter" order="24" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="4'" fieldRefID="25'" datasetField="Files_Succeeded_Count" datasetFieldDisplayName="Files_Succeeded_Count" order="25" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="5'" fieldRefID="26'" datasetField="Files_Failed_Count" datasetFieldDisplayName="Files_Failed_Count" order="26" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="6'" fieldRefID="27'" datasetField="Failed_File_Counter" datasetFieldDisplayName="Failed_File_Counter" order="27" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="7'" fieldRefID="28'" datasetField="Files_Total_Count" datasetFieldDisplayName="Files_Total_Count" order="28" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="8'" fieldRefID="29'" datasetField="Files_Successful_Percent" datasetFieldDisplayName="Files_Successful_Percent" order="29" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="9'" fieldRefID="30'" datasetField="Files_Failed_Percent" datasetFieldDisplayName="Files_Failed_Percent" order="30" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="10'" fieldRefID="31'" datasetField="File_Size_Threshold_Count" datasetFieldDisplayName="File_Size_Threshold_Count" order="31" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="11'" fieldRefID="32'" datasetField="Threshold_Size_File_Counter" datasetFieldDisplayName="Threshold_Size_File_Counter" order="32" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="12'" fieldRefID="33'" datasetField="Threshold_Error_File_Counter" datasetFieldDisplayName="Threshold_Error_File_Counter" order="33" dataType="INTEGER" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="13'" fieldRefID="34'" datasetField="File_Error_Threshold_Count" datasetFieldDisplayName="File_Error_Threshold_Count" order="34" dataType="FLOAT" isGroupLevel="false"/>
+<DatasetField CalculatedFieldID="14'" fieldRefID="35'" datasetField="PlanNameWithAbbreviation" datasetFieldDisplayName="PlanNameWithAbbreviation" order="35" dataType="STRING" isGroupLevel="false"/>
+</FieldRefs>
+<CalculatedFields>
+<CalculatedField CalculatedFieldID="0">
+<CalculatedFieldName>Records_Successful_Percent</CalculatedFieldName>
+<CalcExpression>IF(({Records_Count}!=NULL)&amp;&amp;({Records_Failed_Count}!=NULL))THEN(({Records_Count}-{Records_Failed_Count})/{Records_Count})ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<LogicalExpr>
+<Value bParameter="false">Records_Count</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<LogicalOpr>&amp;&amp;</LogicalOpr>
+<LogicalExpr>
+<Value bParameter="false">Records_Failed_Count</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+</LogicalExpr>
+<Expression>
+<Expression>
+<Value bParameter="false">Records_Count</Value>
+<BinaryOpr>-</BinaryOpr>
+<Value bParameter="false">Records_Failed_Count</Value>
+</Expression>
+<BinaryOpr>/</BinaryOpr>
+<Value bParameter="false">Records_Count</Value>
+</Expression>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="1">
+<CalculatedFieldName>Records_Failed_Percent</CalculatedFieldName>
+<CalcExpression>IF(({Records_Count}!=NULL)&amp;&amp;({Records_Failed_Count}!=NULL))THEN({Records_Failed_Count}/{Records_Count})ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<LogicalExpr>
+<Value bParameter="false">Records_Count</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<LogicalOpr>&amp;&amp;</LogicalOpr>
+<LogicalExpr>
+<Value bParameter="false">Records_Failed_Count</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+</LogicalExpr>
+<Expression>
+<Value bParameter="false">Records_Failed_Count</Value>
+<BinaryOpr>/</BinaryOpr>
+<Value bParameter="false">Records_Count</Value>
+</Expression>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="2">
+<CalculatedFieldName>Records_Successful_Count</CalculatedFieldName>
+<CalcExpression>SUM({Records_Count}-{Records_Failed_Count}-{Records_Ignored_Count})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Expression>
+<Expression>
+<Value bParameter="false">Records_Count</Value>
+<BinaryOpr>-</BinaryOpr>
+<Value bParameter="false">Records_Failed_Count</Value>
+</Expression>
+<BinaryOpr>-</BinaryOpr>
+<Value bParameter="false">Records_Ignored_Count</Value>
+</Expression>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="3">
+<CalculatedFieldName>Successful_File_Counter</CalculatedFieldName>
+<CalcExpression>IF({Load_Status}=="Successful")THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">Load_Status</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">"Successful"</Value>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="4">
+<CalculatedFieldName>Files_Succeeded_Count</CalculatedFieldName>
+<CalcExpression>SUM({Successful_File_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">Successful_File_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="5">
+<CalculatedFieldName>Files_Failed_Count</CalculatedFieldName>
+<CalcExpression>SUM({Failed_File_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">Failed_File_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="6">
+<CalculatedFieldName>Failed_File_Counter</CalculatedFieldName>
+<CalcExpression>IF({Load_Status}=="Failed")THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">Load_Status</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">"Failed"</Value>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="7">
+<CalculatedFieldName>Files_Total_Count</CalculatedFieldName>
+<CalcExpression>COUNT({BEAM_ID})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>COUNT</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">BEAM_ID</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="8">
+<CalculatedFieldName>Files_Successful_Percent</CalculatedFieldName>
+<CalcExpression>IF(COUNT({BEAM_ID})>0)THEN(SUM({Successful_File_Counter})/COUNT({BEAM_ID}))ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Function>
+<FunctionName>COUNT</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">BEAM_ID</Value>
+</FunctionArguments>
+</Function>
+<LogicalOpr>></LogicalOpr>
+<Value bParameter="false">0</Value>
+</LogicalExpr>
+<Expression>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">Successful_File_Counter</Value>
+</FunctionArguments>
+</Function>
+<BinaryOpr>/</BinaryOpr>
+<Function>
+<FunctionName>COUNT</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">BEAM_ID</Value>
+</FunctionArguments>
+</Function>
+</Expression>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="9">
+<CalculatedFieldName>Files_Failed_Percent</CalculatedFieldName>
+<CalcExpression>IF(COUNT({BEAM_ID})>0)THEN(SUM({Failed_File_Counter})/COUNT({BEAM_ID}))ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Function>
+<FunctionName>COUNT</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">BEAM_ID</Value>
+</FunctionArguments>
+</Function>
+<LogicalOpr>></LogicalOpr>
+<Value bParameter="false">0</Value>
+</LogicalExpr>
+<Expression>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">Failed_File_Counter</Value>
+</FunctionArguments>
+</Function>
+<BinaryOpr>/</BinaryOpr>
+<Function>
+<FunctionName>COUNT</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">BEAM_ID</Value>
+</FunctionArguments>
+</Function>
+</Expression>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="10">
+<CalculatedFieldName>File_Size_Threshold_Count</CalculatedFieldName>
+<CalcExpression>SUM({Threshold_Size_File_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">Threshold_Size_File_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="11">
+<CalculatedFieldName>Threshold_Size_File_Counter</CalculatedFieldName>
+<CalcExpression>IF({Load_Status}=="Exceeded Size Threshold")THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">Load_Status</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">"Exceeded Size Threshold"</Value>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="12">
+<CalculatedFieldName>Threshold_Error_File_Counter</CalculatedFieldName>
+<CalcExpression>IF({Load_Status}=="Exceeded Error Threshold")THEN(1)ELSE(0)</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">Load_Status</Value>
+<LogicalOpr>==</LogicalOpr>
+<Value bParameter="false">"Exceeded Error Threshold"</Value>
+</LogicalExpr>
+<Value bParameter="false">1</Value>
+<Value bParameter="false">0</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="13">
+<CalculatedFieldName>File_Error_Threshold_Count</CalculatedFieldName>
+<CalcExpression>SUM({Threshold_Error_File_Counter})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>SUM</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">Threshold_Error_File_Counter</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+<CalculatedField CalculatedFieldID="14">
+<CalculatedFieldName>PlanNameWithAbbreviation</CalculatedFieldName>
+<CalcExpression>IF({Plan_Name_Full}!=NULL)THEN(CONCAT({Plan_Name_Full},"(",{Plan_Name},")"))ELSE({Plan_Name})</CalcExpression>
+<CalculatedExpr>
+<Function>
+<FunctionName>IF</FunctionName>
+<FunctionArguments>
+<LogicalExpr>
+<Value bParameter="false">Plan_Name_Full</Value>
+<LogicalOpr>!=</LogicalOpr>
+<Value bParameter="false">NULL</Value>
+</LogicalExpr>
+<Function>
+<FunctionName>CONCAT</FunctionName>
+<FunctionArguments>
+<Value bParameter="false">Plan_Name_Full</Value>
+<Value bParameter="false">"("</Value>
+<Value bParameter="false">Plan_Name</Value>
+<Value bParameter="false">")"</Value>
+</FunctionArguments>
+</Function>
+<Value bParameter="false">Plan_Name</Value>
+</FunctionArguments>
+</Function>
+</CalculatedExpr>
+</CalculatedField>
+</CalculatedFields>
+<RecordFields/>
+<Groups collapsed="true">
+<Group level="0"/>
+<Group level="1" order="ASC" datasetField="Reception_Date" labelFlag="false" dataType="DATETIME" iQuantity="1,1,1" eTimeUnit="YEAR,MONTH,DAYOFMONTH" isTimeline="false" zeroFill="false"/>
+<Group level="2" order="ASC" datasetField="PlanNameWithAbbreviation" labelFlag="true" dataType="STRING">
+<Aggregate operandDatasetField="Failed_File_Counter" operation="SUM" fieldID="SUMFailed_File_Counter"/>
+<Aggregate operandDatasetField="Successful_File_Counter" operation="SUM" fieldID="SUMSuccessful_File_Counter"/>
+<Aggregate operandDatasetField="Threshold_Size_File_Counter" operation="SUM" fieldID="SUMThreshold_Size_File_Counter"/>
+</Group>
+</Groups>
+<Filter>
+<Branch name="Root" type="ALL">
+<Branch name="internalFilter" type="ALL"/>
+<Branch name="runtimeFilter" type="ALL"/>
+</Branch>
+</Filter>
+<GroupFilter>
+<Branch name="groupFilter" type="ALL"/>
+</GroupFilter>
+<Sorts/>
+<Parameters/>
+</Modifier>
+<InsertNewRecordPosition>INSERT_AFTER</InsertNewRecordPosition>
+<AuthenticationType>USE_BAM_CONNECTION_CREDENTIAL</AuthenticationType>
+</Modifiers>
+</BeamDataControl>
+</Source>
+</AdapterDataControl>
+</mds:insert>
+<mds:modify element="(xmlns(mds_ns1=http://xmlns.oracle.com/adfm/configuration))/mds_ns1:DataControlConfigs">
+<mds:attribute name="Package" value="beam.project.SPICE.businessquery.Eligibility_File_Status.datacontrol.SPICE_Eligibility_File_Status"/>
+<mds:attribute name="id" value="DataControls"/>
+</mds:modify>
+</mds:customization>

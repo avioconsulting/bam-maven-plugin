@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ns0:valueParameter xmlns:ns0="http://xmlns.oracle.com/bam/bam12">
+<name>InTeRnAlNaMeQuery__1483574862328_DeTaIlEd_PlanNameWithAbbreviation</name>
+<id>/project/SPICE/parameter/InTeRnAlNaMeQuery__1483574862328_DeTaIlEd_PlanNameWithAbbreviation</id>
+<displayName>InTeRnAlNaMeQuery__1483574862328_DeTaIlEd_PlanNameWithAbbreviation</displayName>
+<internal>true</internal>
+<useHive>false</useHive>
+<systemManaged>false</systemManaged>
+<createdDate>2017-01-14T18:34:27.358-06:00</createdDate>
+<modifiedDate>2017-01-14T18:34:27.358-06:00</modifiedDate>
+<createdBy>weblogic</createdBy>
+<modifiedBy>weblogic</modifiedBy>
+<addDefaultPermissions>true</addDefaultPermissions>
+<inDataObject>false</inDataObject>
+<dataType>VARCHAR</dataType>
+<required>true</required>
+<value/>
+<defaultValue>
+<specialValue>ALL</specialValue>
+</defaultValue>
+</ns0:valueParameter>
