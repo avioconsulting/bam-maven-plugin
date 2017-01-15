@@ -18,7 +18,7 @@ class Exporter {
         def script = new File(bamBinPath, 'bamcommand')
         assert script.exists()
         // matches file adapter's expected path
-        def exportFile = '/tmp/bamExporter/bamExport.zip'
+        def exportFile = '/tmp/bamExportForMavenClient.zip'
         def directory = new File(exportFile).parentFile
         if (!directory.exists()) {
             directory.mkdirs()
