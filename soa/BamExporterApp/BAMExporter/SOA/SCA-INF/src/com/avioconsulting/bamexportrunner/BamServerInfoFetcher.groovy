@@ -13,7 +13,10 @@ class BamServerInfoFetcher {
             node.name == 'bam_server1'
         }
         def nodeManagerConfig = new XmlSlurper().parse(nodeManagerInitInfoXml)
-        String host = bamNode.'listen-address'
+        String host = bamNode.'listen-address'.text()
+        if (host.empty) {
+            host = 'localhost'
+        }
         int port = new Integer(bamNode.'listen-port'.text())
         String username = nodeManagerConfig.userName.text()
         String encryptedPassword = nodeManagerConfig.password.text()

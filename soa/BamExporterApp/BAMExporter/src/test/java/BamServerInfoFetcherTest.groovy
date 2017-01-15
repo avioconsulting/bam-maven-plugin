@@ -48,11 +48,20 @@ class BamServerInfoFetcherTest {
     @Test
     void parse_bamServerLocalhost() {
         // arrange
+        def localhost = new File('src/test/resources/localHostDomainConfig.xml')
 
         // act
+        def result = getResult localhost, standardNodeManagerConfig
 
         // assert
-        fail 'write this'
+        assertThat result.host,
+                   is(equalTo('localhost'))
+        assertThat result.port,
+                   is(equalTo(10001))
+        assertThat result.username,
+                   is(equalTo('weblogic'))
+        assertThat result.password,
+                   is(equalTo('decrypt {AES}r4jhRwZAbxa66FXOWFeCDy3+3H0x7NOrJYHs4Bh7yqQ='))
     }
 
     @Test
