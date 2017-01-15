@@ -1,11 +1,13 @@
 package com.avioconsulting.bamexporter
 
 import groovy.mock.interceptor.StubFor
+import org.apache.commons.io.FileUtils
 import org.apache.maven.project.MavenProject
 import org.junit.Before
 import org.junit.Test
 
-import static org.hamcrest.Matchers.*
+import static org.hamcrest.Matchers.equalTo
+import static org.hamcrest.Matchers.is
 import static org.junit.Assert.assertThat
 
 class BamExportMojoTest {
@@ -14,6 +16,7 @@ class BamExportMojoTest {
     List<String> bamProjectsExecuted
     final File baseDirectory = new File('build/tmp/the_base_dir')
     final File projectDirectory = new File(baseDirectory, 'baseProjectDir')
+    final File bamPath = new File(this.projectDirectory, 'src/main/resources/bam')
     File validZip = new File(baseDirectory, 'bamExport.zip')
     StubFor stub
 
@@ -37,15 +40,15 @@ class BamExportMojoTest {
             projectDirectory.deleteDir()
         }
         projectDirectory.mkdirs()
+        def antBuilder = new AntBuilder()
+        antBuilder.zip(destFile: validZip) {
+            fileset(dir: new File('src/test/resources/bamExport'))
+        }
     }
 
     @Test
     void normal() {
         // arrange
-        def antBuilder = new AntBuilder()
-        antBuilder.zip(destFile: validZip) {
-            fileset(dir: new File('src/test/resources/bamExport'))
-        }
 
         // act
         this.stub.use {
@@ -55,12 +58,36 @@ class BamExportMojoTest {
         // assert
         assertThat bamProjectsExecuted,
                    is(equalTo(['theProject']))
-        def bamPath = new File(this.projectDirectory, 'src/main/resources/bam')
         def actualFiles = new FileNameFinder().getFileNames(bamPath.absolutePath, '**/*')
                 .collect { f -> f.replace(new File(projectDirectory, 'src/main/resources/bam').absolutePath + '/', '') }
         assertThat actualFiles.contains('dataobject/Eligibility_File_PDO/DataObject.xml'),
                    is(equalTo(true))
         assertThat actualFiles.contains('bam.properties'),
                    is(equalTo(true))
+    }
+
+    @Test
+    void cleansExistingDirectory() {
+        // arrange
+        bamPath.mkdirs()
+        def existingFile = new File(bamPath, 'something.xml')
+        FileUtils.touch existingFile
+
+        // act
+        this.stub.use {
+            mojo.execute()
+        }
+
+        // assert
+        assertThat bamProjectsExecuted,
+                   is(equalTo(['theProject']))
+        def actualFiles = new FileNameFinder().getFileNames(bamPath.absolutePath, '**/*')
+                .collect { f -> f.replace(new File(projectDirectory, 'src/main/resources/bam').absolutePath + '/', '') }
+        assertThat actualFiles.contains('dataobject/Eligibility_File_PDO/DataObject.xml'),
+                   is(equalTo(true))
+        assertThat actualFiles.contains('bam.properties'),
+                   is(equalTo(true))
+        assertThat existingFile.exists(),
+                   is(equalTo(false))
     }
 }

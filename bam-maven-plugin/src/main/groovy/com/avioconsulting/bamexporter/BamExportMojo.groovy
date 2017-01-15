@@ -37,6 +37,9 @@ class BamExportMojo extends AbstractMojo {
                                             'main',
                                             'resources',
                                             'bam'
+            if (destinationDirectory.exists()) {
+                destinationDirectory.deleteDir()
+            }
             antBuilder.unzip src: absolutePath,
                              dest: destinationDirectory.absolutePath,
                              overwrite: true
