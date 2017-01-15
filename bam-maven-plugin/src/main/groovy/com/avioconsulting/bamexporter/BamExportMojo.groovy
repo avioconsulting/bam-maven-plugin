@@ -11,10 +11,10 @@ import org.apache.maven.project.MavenProject
 @Mojo(name = 'bamExport')
 class BamExportMojo extends AbstractMojo {
     @Parameter(property = 'bam.export.endpoint',
-            defaultValue = 'https://${soa.host}:${soa.port}/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep')
+            defaultValue = '${soa.deploy.url}/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep')
     private String exportEndpoint
 
-    @Parameter(property = 'bam.mavenProject', required = true)
+    @Parameter(property = 'bam.project', required = true)
     private String bamProject
 
     @Component
@@ -26,7 +26,9 @@ class BamExportMojo extends AbstractMojo {
     }
 
     void execute() throws MojoExecutionException, MojoFailureException {
-        def exportFetcher = new BamExportFetcher(new URI(this.exportEndpoint))
+        def uri = new URI(this.exportEndpoint)
+        this.log.info "Fetching BAM artifacts from ${uri}"
+        def exportFetcher = new BamExportFetcher(uri)
         File.createTempFile('bamExport', '.zip').with {
             deleteOnExit()
 
