@@ -23,8 +23,8 @@ class Exporter {
         if (!directory.exists()) {
             directory.mkdirs()
         }
-        buildBamConfig bamBinPath
-        def command = "${script} -cmd export -name \"${bamProject}\" -type project -file \"${exportFile}\""
+        buildBamConnectConfig bamBinPath
+        def command = "${script} -cmd export -name ${bamProject} -type project -file ${exportFile}"
         log "BRADY: Executing command ${command}"
         def result = command.execute()
         result.waitForOrKill(COMMAND_TIMEOUT_MINUTES*60*1000)
@@ -37,11 +37,11 @@ class Exporter {
         return logText.join("\n")
     }
 
-    static buildBamConfig(File bamBinPath) {
+    static buildBamConnectConfig(File bamBinPath) {
         // TODO: Derive these from domain config, etc.
         def config = [
                 host    : 'localhost',
-                port    : '7001', // BAM port needed or is AdminServer OK??
+                port    : '10001',
                 username: 'weblogic',
                 password: 'oracle1234'
         ]
