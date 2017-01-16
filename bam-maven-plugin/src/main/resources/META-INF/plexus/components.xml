@@ -34,7 +34,7 @@
                                 com.avioconsulting:bam-maven-plugin:bamPackage
                             </package>
                             <pre-integration-test>
-                                com.avioconsulting:b2b-maven-plugin:b2bImport
+                                com.avioconsulting:bam-maven-plugin:bamImport
                             </pre-integration-test>
                         </phases>
                     </lifecycle>
