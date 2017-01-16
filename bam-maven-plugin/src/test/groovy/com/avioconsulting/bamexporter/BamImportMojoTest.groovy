@@ -20,6 +20,8 @@ class BamImportMojoTest extends BaseBamTest {
         mojo = new BamImportMojo()
         mojo.bamProject = 'theProject'
         mockMavenProject mojo
+        FileUtils.copyDirectory new File('src/test/resources/bamExport'),
+                                bamPath
         def packageMojo = new BamPackageMojo()
         packageMojo.bamProject = 'theProject'
         mockMavenProject packageMojo
