@@ -1,5 +1,6 @@
 package com.avioconsulting.bamexporter
 
+import groovy.xml.MarkupBuilder
 import org.apache.commons.lang3.SystemUtils
 import org.apache.maven.plugin.MojoExecutionException
 import org.apache.maven.plugin.MojoFailureException
@@ -10,6 +11,18 @@ import org.apache.maven.plugins.annotations.Parameter
 class BamImportMojo extends AbstractBamMojo {
     @Parameter(property = 'bam.oracle.home', defaultValue = '${oracle.home}')
     private String oracleHome
+
+    @Parameter(property = 'weblogic.user', required = true)
+    private String weblogicUser
+
+    @Parameter(property = 'weblogic.password', required = true)
+    private String weblogicPassword
+
+    @Parameter(property = 'bam.hostname', required = true)
+    private String bamServerHostname
+
+    @Parameter(property = 'bam.port', required = true)
+    private int bamServerPort
 
     private static final int COMMAND_TIMEOUT_MINUTES = 5
 
@@ -26,14 +39,37 @@ class BamImportMojo extends AbstractBamMojo {
         SystemUtils.IS_OS_WINDOWS
     }
 
+    void writeBamConfig(File bamBinPath) {
+        def config = [
+                host    : this.bamServerHostname,
+                port    : this.bamServerPort,
+                username: this.weblogicUser,
+                password: this.weblogicPassword
+        ]
+        def file = new File(bamBinPath, 'BAMCommandConfig.xml')
+        file.write('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>')
+        file.write "\n"
+        new FileWriter(file).with { sw ->
+            new MarkupBuilder(sw).with {
+                BAMCommandConfig {
+                    config.collect { k, v ->
+                        "$k" { v instanceof Map ? v.collect(owner) : mkp.yield(v) }
+                    }
+                }
+            }
+        }
+    }
+
     void execute() throws MojoExecutionException, MojoFailureException {
-        def scriptExecutable = join new File(oracleHome), 'bam', 'bin', 'bamcommand'
+        def bamBinPath = join new File(oracleHome), 'bam', 'bin'
+        def scriptExecutable = join bamBinPath, 'bamcommand'
         if (this.isWindows()) {
             scriptExecutable = new File(scriptExecutable.absolutePath + '.cmd')
         }
         if (!scriptExecutable.exists()) {
             throw new Exception("Unable to find BAM script in path ${scriptExecutable}!")
         }
+        writeBamConfig bamBinPath
         def artifact = this.mavenProject.artifact.file.absolutePath
         // spaces in path names
         if (this.isWindows()) {

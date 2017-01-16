@@ -30,10 +30,14 @@ class BamImportMojoTest extends BaseBamTest {
         mojo.oracleHome = oracleHome.absolutePath
         bamBinPath = mojo.join oracleHome, 'bam', 'bin'
         bamBinPath.mkdirs()
+        mojo.weblogicUser = 'weblogic'
+        mojo.weblogicPassword = 'thepassword'
+        mojo.bamServerHostname = 'the.host.name'
+        mojo.bamServerPort = 10001
     }
 
     @Test
-    void nonWindows() {
+    void execution_nonWindows() {
         // arrange
         mojo.metaClass.isWindows = {
             false
@@ -52,7 +56,7 @@ class BamImportMojoTest extends BaseBamTest {
     }
 
     @Test
-    void windows() {
+    void execution_windows() {
         // arrange
         mojo.metaClass.isWindows = {
             true
@@ -68,5 +72,30 @@ class BamImportMojoTest extends BaseBamTest {
                    is(equalTo(1))
         assertThat this.commandsRun[0].toString(),
                    is(equalTo("${scriptPath.absolutePath} -cmd import -type project -file \"${mojo.mavenProject.artifact.file.absolutePath}\"".toString()))
+    }
+
+    @Test
+    void xmlConfig() {
+        // arrange
+        mojo.metaClass.isWindows = {
+            false
+        }
+        def scriptPath = new File(bamBinPath, 'bamcommand')
+        FileUtils.touch scriptPath
+
+        // act
+        mojo.execute()
+
+        // assert
+        def xmlConfig = new File(bamBinPath, 'BAMCommandConfig.xml')
+        def node = new XmlSlurper().parse(xmlConfig)
+        assertThat node.host,
+                   is(equalTo('the.host.name'))
+        assertThat node.port,
+                   is(equalTo('10001'))
+        assertThat node.username,
+                   is(equalTo('weblogic'))
+        assertThat node.password,
+                   is(equalTo('thepassword'))
     }
 }
