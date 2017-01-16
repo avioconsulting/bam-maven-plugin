@@ -81,7 +81,7 @@ class BamImportMojo extends AbstractBamMojo {
             if (this.isWindows()) {
                 zipFilePath = "\"${zipFilePath}\""
             }
-            def command = "${scriptExecutable} -cmd import -type project -file ${zipFilePath}"
+            def command = "${scriptExecutable} -cmd import -type project -mode update -file ${zipFilePath}"
             this.log.info "Executing ${command}..."
             execute(command)
         }

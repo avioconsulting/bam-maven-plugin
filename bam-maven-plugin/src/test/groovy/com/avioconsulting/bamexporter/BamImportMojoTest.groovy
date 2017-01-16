@@ -56,7 +56,7 @@ class BamImportMojoTest extends BaseBamTest {
         assertThat this.commandsRun.size(),
                    is(equalTo(1))
         assertThat this.commandsRun[0].toString(),
-                   is(equalTo("${scriptPath.absolutePath} -cmd import -type project -file ${tempZipFile.absolutePath}".toString()))
+                   is(equalTo("${scriptPath.absolutePath} -cmd import -type project -mode update -file ${tempZipFile.absolutePath}".toString()))
     }
 
     @Test
@@ -75,7 +75,7 @@ class BamImportMojoTest extends BaseBamTest {
         assertThat this.commandsRun.size(),
                    is(equalTo(1))
         assertThat this.commandsRun[0].toString(),
-                   is(equalTo("${scriptPath.absolutePath} -cmd import -type project -file \"${tempZipFile.absolutePath}\"".toString()))
+                   is(equalTo("${scriptPath.absolutePath} -cmd import -type project -mode update -file \"${tempZipFile.absolutePath}\"".toString()))
     }
 
     @Test
