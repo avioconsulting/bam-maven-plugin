@@ -21,16 +21,25 @@ class BamPackageMojoTest extends BaseBamTest {
     @Test
     void normal() {
         // arrange
-        def bamProps = new File(bamPath, 'bam.properties')
-        FileUtils.touch bamProps
 
         // act
         mojo.execute()
 
         // assert
+        def zipFile = mojo.join(this.targetDirectory, 'theBuildName.jar')
+        assertThat zipFile.exists(),
+                   is(equalTo(true))
         assertThat this.mavenProjectArtifact,
-                   is(equalTo(mojo.join(this.targetDirectory, 'theBuildName.jar')))
-        def antBuilder = new AntBuilder()
-        fail 'write this'
+                   is(equalTo(zipFile))
+        File.createTempDir().with {
+            def antBuilder = new AntBuilder()
+            antBuilder.unzip src: zipFile,
+                             dest: absolutePath,
+                             overwrite: true
+            def contents = new File(absolutePath, 'bam.properties')
+            assertThat contents.exists(),
+                       is(equalTo(true))
+            absoluteFile.deleteDir()
+        }
     }
 }

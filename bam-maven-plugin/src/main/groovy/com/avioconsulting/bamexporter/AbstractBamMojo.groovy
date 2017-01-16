@@ -12,6 +12,14 @@ abstract class AbstractBamMojo extends AbstractMojo {
     @Component
     protected MavenProject mavenProject
 
+    protected File getBamDestination() {
+        join this.mavenProject.basedir,
+             'src',
+             'main',
+             'resources',
+             'bam'
+    }
+
     protected static File join(File parent, String... parts) {
         def separator = System.getProperty 'file.separator'
         new File(parent, parts.join(separator))

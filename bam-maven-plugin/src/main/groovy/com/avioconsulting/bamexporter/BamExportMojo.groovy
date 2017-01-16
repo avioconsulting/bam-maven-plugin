@@ -36,11 +36,7 @@ class BamExportMojo extends AbstractBamMojo {
 
             exportFetcher.fetch this.bamProject, new FileOutputStream(absolutePath)
             def antBuilder = new AntBuilder()
-            def destinationDirectory = join this.mavenProject.basedir,
-                                            'src',
-                                            'main',
-                                            'resources',
-                                            'bam'
+            def destinationDirectory = this.bamDestination
             if (destinationDirectory.exists()) {
                 destinationDirectory.deleteDir()
             }

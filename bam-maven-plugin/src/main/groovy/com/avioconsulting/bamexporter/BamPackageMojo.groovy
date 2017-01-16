@@ -10,6 +10,10 @@ class BamPackageMojo extends AbstractBamMojo {
         def mavenBuild = this.mavenProject.build
         def zipFile = join new File(mavenBuild.directory), "${mavenBuild.finalName}.jar"
         this.log.info "Zipping up BAM artifacts into ${zipFile}..."
+        def antBuilder = new AntBuilder()
+        antBuilder.zip(destFile: zipFile.absolutePath) {
+            fileset(dir: this.bamDestination)
+        }
         this.mavenProject.artifact.file = zipFile
     }
 }

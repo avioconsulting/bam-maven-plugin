@@ -31,7 +31,7 @@
                                 org.apache.maven.plugins:maven-surefire-plugin:test
                             </test>
                             <package>
-                                com.avioconsulting:b2b-maven-plugin:b2bPackage
+                                com.avioconsulting:bam-maven-plugin:bamPackage
                             </package>
                             <pre-integration-test>
                                 com.avioconsulting:b2b-maven-plugin:b2bImport
