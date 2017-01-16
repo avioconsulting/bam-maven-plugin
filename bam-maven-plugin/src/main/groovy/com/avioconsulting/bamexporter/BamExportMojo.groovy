@@ -14,11 +14,6 @@ class BamExportMojo extends AbstractBamMojo {
     @Parameter(property = 'bam.export', defaultValue = 'false')
     private boolean doExport
 
-    protected static File join(File parent, String... parts) {
-        def separator = System.getProperty 'file.separator'
-        new File(parent, parts.join(separator))
-    }
-
     void execute() throws MojoExecutionException, MojoFailureException {
         def classesDir = new File(this.mavenProject.build.outputDirectory)
 

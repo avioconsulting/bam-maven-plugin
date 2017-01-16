@@ -11,23 +11,15 @@ import static org.hamcrest.Matchers.equalTo
 import static org.hamcrest.Matchers.is
 import static org.junit.Assert.assertThat
 
-class BamExportMojoTest {
+class BamExportMojoTest extends BaseBamTest {
     BamExportMojo mojo
-    OutputStream stream
     List<String> bamProjectsExecuted
-    final File baseDirectory = new File('build/tmp/the_base_dir')
-    final File projectDirectory = new File(baseDirectory, 'baseProjectDir')
-    final File classesDirectory = new File(new File(projectDirectory, 'target'), 'classes')
-    final File bamPath = new File(this.projectDirectory, 'src/main/resources/bam')
+
     File validZip = new File(baseDirectory, 'bamExport.zip')
     StubFor stub
 
     @Before
     void setup() {
-        if (baseDirectory.exists()) {
-            baseDirectory.deleteDir()
-        }
-        baseDirectory.mkdirs()
         mojo = new BamExportMojo()
         mojo.bamProject = 'theProject'
         mojo.exportEndpoint = 'http://endpoint'
@@ -37,15 +29,7 @@ class BamExportMojoTest {
             this.bamProjectsExecuted << bamProject
             stream.write validZip.readBytes()
         }
-        def build = [outputDirectory: classesDirectory.absolutePath] as Build
-        mojo.mavenProject = [
-                getBasedir: { this.projectDirectory },
-                getBuild  : { build }
-        ] as MavenProject
-        if (projectDirectory.exists()) {
-            projectDirectory.deleteDir()
-        }
-        projectDirectory.mkdirs()
+        mockMavenProject mojo
         def antBuilder = new AntBuilder()
         antBuilder.zip(destFile: validZip) {
             fileset(dir: new File('src/test/resources/bamExport'))
