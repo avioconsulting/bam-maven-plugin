@@ -1,27 +1,18 @@
 package com.avioconsulting.bamexporter
 
-import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.plugin.MojoExecutionException
 import org.apache.maven.plugin.MojoFailureException
-import org.apache.maven.plugins.annotations.Component
 import org.apache.maven.plugins.annotations.Mojo
 import org.apache.maven.plugins.annotations.Parameter
-import org.apache.maven.project.MavenProject
 
 @Mojo(name = 'bamExport')
-class BamExportMojo extends AbstractMojo {
+class BamExportMojo extends AbstractBamMojo {
     @Parameter(property = 'bam.export.endpoint',
             defaultValue = '${soa.deploy.url}/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep')
     private String exportEndpoint
 
-    @Parameter(property = 'bam.project', required = true)
-    private String bamProject
-
     @Parameter(property = 'bam.export', defaultValue = 'false')
     private boolean doExport
-
-    @Component
-    private MavenProject mavenProject
 
     protected static File join(File parent, String... parts) {
         def separator = System.getProperty 'file.separator'
