@@ -12,6 +12,8 @@ class BamImportMojoTest extends BaseBamTest {
     BamImportMojo mojo
     List<String> commandsRun
     File bamBinPath
+    File tmpPath = new File(this.projectDirectory, 'tmp')
+    File tempZipFile = new File(this.tmpPath, 'bamExport.zip')
 
     @Before
     void setup() {
@@ -52,7 +54,7 @@ class BamImportMojoTest extends BaseBamTest {
         assertThat this.commandsRun.size(),
                    is(equalTo(1))
         assertThat this.commandsRun[0].toString(),
-                   is(equalTo("${scriptPath.absolutePath} -cmd import -type project -file ${mojo.mavenProject.artifact.file.absolutePath}".toString()))
+                   is(equalTo("${scriptPath.absolutePath} -cmd import -type project -file ${tempZipFile.absolutePath}".toString()))
     }
 
     @Test
@@ -71,7 +73,7 @@ class BamImportMojoTest extends BaseBamTest {
         assertThat this.commandsRun.size(),
                    is(equalTo(1))
         assertThat this.commandsRun[0].toString(),
-                   is(equalTo("${scriptPath.absolutePath} -cmd import -type project -file \"${mojo.mavenProject.artifact.file.absolutePath}\"".toString()))
+                   is(equalTo("${scriptPath.absolutePath} -cmd import -type project -file \"${tempZipFile.absolutePath}\"".toString()))
     }
 
     @Test

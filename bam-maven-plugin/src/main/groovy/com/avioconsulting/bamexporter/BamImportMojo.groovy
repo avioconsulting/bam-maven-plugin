@@ -1,6 +1,7 @@
 package com.avioconsulting.bamexporter
 
 import groovy.xml.MarkupBuilder
+import org.apache.commons.io.FileUtils
 import org.apache.commons.lang3.SystemUtils
 import org.apache.maven.plugin.MojoExecutionException
 import org.apache.maven.plugin.MojoFailureException
@@ -70,13 +71,39 @@ class BamImportMojo extends AbstractBamMojo {
             throw new Exception("Unable to find BAM script in path ${scriptExecutable}!")
         }
         writeBamConfig bamBinPath
-        def artifact = this.mavenProject.artifact.file.absolutePath
-        // spaces in path names
-        if (this.isWindows()) {
-            artifact = "\"${artifact}\""
+        def tempFile = join this.mavenProject.basedir, 'tmp', 'bamExport.zip'
+        // bamcommand doesn't like files ending in jar, even if they are zip files
+        FileUtils.copyFile this.mavenProject.artifact.file,
+                           tempFile
+        try {
+            def zipFilePath = tempFile.absolutePath
+            // spaces in path names
+            if (this.isWindows()) {
+                zipFilePath = "\"${zipFilePath}\""
+            }
+            def command = "${scriptExecutable} -cmd import -type project -file ${zipFilePath}"
+            this.log.info "Executing ${command}..."
+            execute(command)
         }
-        def command = "${scriptExecutable} -cmd import -type project -file ${artifact}"
-        this.log.info "Executing ${command}..."
-        execute(command)
+        finally {
+            deleteTempFile tempFile
+        }
+    }
+
+    private deleteTempFile(File file) {
+        // avoid potential Windows locking issues
+        def success = false
+        // on Windows, locking is causing this to fail unless retried like this
+        for (int i = 0; i < 20; i++) {
+            if (file.delete()) {
+                success = true
+                break
+            }
+            System.gc()
+            Thread.yield()
+        }
+        if (!success) {
+            throw new Exception("Unable to delete file from ${file}")
+        }
     }
 }
