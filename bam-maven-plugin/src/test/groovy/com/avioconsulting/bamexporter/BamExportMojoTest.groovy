@@ -2,8 +2,6 @@ package com.avioconsulting.bamexporter
 
 import groovy.mock.interceptor.StubFor
 import org.apache.commons.io.FileUtils
-import org.apache.maven.model.Build
-import org.apache.maven.project.MavenProject
 import org.junit.Before
 import org.junit.Test
 
