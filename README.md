@@ -29,18 +29,71 @@ Runs the `bamImport` goal. It will:
 
 ## Setup
 
+### Building/installing
+
 1. This plugin uses the `bamcommand` executable under the hood. As a result, it expects a JDeveloper/SOA Suite Quick Start install on the machine it's being run from.
 2. Until the plugin is published, run `./gradlew clean install` from the `bam-maven-plugin` subdirectory in this repository, to install the plugin in your local `.m2` repository.
 3. Ensure the machine running the plugin has network access to the port of the Weblogic managed server that the BAM server/cluster is running on.
-4. Deploy the BAM exporter composite (from the `soa/BamExporterApp/BAMExporter` directory in this repository) on the environment(s) you wish to export BAM data from. 
+4. Deploy the BAM exporter composite (from the `soa/BamExporterApp/BAMExporter` directory in this repository) on the environment(s) you wish to export BAM data from.
 
-## Running/usage
+### POM setup
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.avioconsulting.project</groupId>
+  <artifactId>Bam</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <description>Project for BAM artifacts</description>
+  <packaging>bam</packaging>
+
+  <properties>
+    <bam.project>BAMProjectName</bam.project>
+    <!-- Business user dashboard development happens in TEST -->
+    <bam.export.endpoint>https://test.environment/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep</bam.export.endpoint>
+    <weblogic.user>username</weblogic.user>
+    <weblogic.password>thepassword</weblogic.password>
+    <bam.hostname>thebamserverhostname</bam.hostname>
+    <bam.port>thebamserverport</bam.port>
+  </properties>
+
+  <build>
+    <plugins>     
+      <plugin>
+         <groupId>com.avioconsulting</groupId>
+         <artifactId>bam-maven-plugin</artifactId>
+         <version>1.0.0</version>
+         <extensions>true</extensions>
+         <configuration>
+             <!-- If we don't repeat the username here, overriden values from settings.xml do not make it into the plugin for some reason -->
+            <weblogicUser>${weblogic.user}</weblogicUser>
+            <!-- not sure if problem is happening w/ password but included it for above reason -->
+            <weblogicPassword>${weblogic.password}</weblogicPassword>
+         </configuration>
+     </plugin>
+    </plugins>
+    <!-- see copy-project-properties above for why we're doing this -->
+    <filters>
+      <filter>${project.basedir}/../../../env/${env}.properties</filter>
+    </filters>
+  </build>
+</project>
+```
+
+## Running
 
 To export data from an environment:
 ```bash
 # bam.export.endpoint is optional, by default it will be set to
 # ${soa.deploy.url}/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep
 mvn -Denv=LOCAL -Dbam.export=true -Dbam.export.endpoint=http://localhost:8001/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep generate-resources
+```
+
+Deploy the project like you would a SOA composite:
+
+```
+mvnd pre-integration-test
 ```
 
 ## Wish List
