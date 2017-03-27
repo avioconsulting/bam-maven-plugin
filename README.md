@@ -93,7 +93,7 @@ mvn -Dbam.export=true -Dbam.export.endpoint=http://localhost:8001/soa-infra/serv
 Deploy the project like you would a SOA composite:
 
 ```
-mvnd pre-integration-test
+mvn pre-integration-test
 ```
 
 ## Wish List
