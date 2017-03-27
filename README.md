@@ -10,7 +10,7 @@ The general idea is to use the BAM console on some environment as an "IDE". The 
 
 ## BAM Exporter composite
 
-It might be the case that the best environment for business users, etc. to create/customize dashboards is a TEST/UAT environment with limited developer access but access to better data. In order to facilitate that workflow, this plugin is designed to work with a "proxy" SOA composite (in this same repo) that runs `bamcommand` on the privileged environment and sends the ZIP file containing the export back to the developer's machine using a SOAP reply.
+It might be the case that the best environment for business users, etc. to create/customize dashboards is a test/UAT environment which tends to have better data than a dev environment. The catch is that test or prod environments often have limited developer access. In order to allow read only/export access to those environments, this plugin is designed to work with a "proxy" SOA composite (in this same repo) that runs `bamcommand` on the privileged environment and sends the ZIP file containing the export back to the developer's machine using a SOAP reply.
 
 ## Maven goals
 
