@@ -87,7 +87,7 @@ To export data from an environment:
 ```bash
 # bam.export.endpoint is optional, by default it will be set to
 # ${soa.deploy.url}/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep
-mvn -Denv=LOCAL -Dbam.export=true -Dbam.export.endpoint=http://localhost:8001/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep generate-resources
+mvn -Dbam.export=true -Dbam.export.endpoint=http://localhost:8001/soa-infra/services/default/BAMExporter/bamexporterprocess_client_ep generate-resources
 ```
 
 Deploy the project like you would a SOA composite:
