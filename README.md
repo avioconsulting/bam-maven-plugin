@@ -32,7 +32,7 @@ Runs the `bamImport` goal. It will:
 ### Building/installing
 
 1. This plugin uses the `bamcommand` executable under the hood. As a result, it expects a JDeveloper/SOA Suite Quick Start install on the machine it's being run from.
-2. Until the plugin is published, run `./gradlew clean install` from the `bam-maven-plugin` subdirectory in this repository, to install the plugin in your local `.m2` repository. We used Gradle to build a Maven plugin, which may sound strange but it works just fine.
+2. Until the plugin is published to Maven Central, run `./gradlew clean install` from the `bam-maven-plugin` subdirectory in this repository, to install the plugin in your local `.m2` repository. We used Gradle to build a Maven plugin, which may sound strange but it works just fine.
 3. Ensure the machine running the plugin has network access to the port of the Weblogic managed server that the BAM server/cluster is running on.
 4. Deploy the BAM exporter composite (from the `soa/BamExporterApp/BAMExporter` directory in this repository) on the environment(s) you wish to export BAM data from.
 5. The plugin can generate a fairly deep directory structure so if you're using Windows, ensure you configure your source control system to handle long file paths. See [Git info](https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/merge_requests/19).
